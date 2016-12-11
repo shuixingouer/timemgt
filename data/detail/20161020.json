@@ -1,0 +1,130 @@
+{"code":200,
+"data":{
+  "title":"Webpack - 前端工具",
+  "id":"20161020",
+  "author":"宅女",
+  "time":"2016-10-20",
+  "type":"2",
+  "body":"",
+  "article":{
+    "articleClassName":"items_2",
+    "start":[
+      {
+        "desc":"webpack这么火爆<br/>没有理由不学习<br/>~",
+        "imagesUrl":"1.jpg"
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"一",
+        "title":"什么是 webpack？",
+        "desc":"webpack 是近期最火的一款<strong>模块加载器兼打包</strong>工具，它能把各种资源，例如 JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。"
+      },
+      {
+        "num":"二",
+        "title":"webpack 的优势",
+        "desc":"<strong>1. </strong>webpack 是以 commonJS 的形式来书写脚本滴，但对 AMD/CMD 的支持也很全面，方便旧项目进行代码迁移。<br/><strong>2. </strong>webpack能模块化js，图片，css等。<br/><strong>3. </strong>能替代部分 grunt/gulp 的工作，比如打包、压缩、混淆、图片转base64、加版本号等。<br/><strong>4.</strong> 通过loader能支持es6，react，react热插拔等等。"
+      },
+      {
+        "num":"三",
+        "title":"安装",
+        "desc":"首先要安装 Node.js 。<br/>Node.js 自带了软件包管理器 npm 。<br/>还没有安装node的同学请移步 <a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161002'>Grunt（一）</a><br/><br/>&darr;&nbsp;用 npm 安装 webpack。",
+        "code":"$ npm install webpack -g",
+        "imagesUrl":"3.png"
+      },
+      {
+        "desc":"<br/>&darr;&nbsp;此时 Webpack 已经安装到了全局环境下",
+        "imagesUrl":"4.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>&darr;&nbsp;可以通过命令行 <strong>webpack -h</strong> 查看版本号和相关指令",
+        "imagesUrl":"5.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>通常我们会将webpack安装到项目依赖，这样就可以使用本地版本的webpack。<br/>进入项目目录（新建的qdzn-two）<br/>确定已有 package.json，没有可以用 <strong>npm init</strong> 自动创建创建。<br/>package.json 是一个标准的 npm 说明文件，里面蕴含了丰富的信息，包括当前项目的依赖模块，自定义的脚本任务等等。<br/>&darr;",
+        "code":"npm init",
+        "imagesUrl":"6.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>终端会问你一系列诸如项目名称，项目描述，作者等信息，不过不用担心，如果你不准备在npm中发布你的模块，这些问题的答案都不重要，回车默认即可。<br/>&darr;",
+        "imagesUrl":"7.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>package.json文件已经就绪<br/>&darr;",
+        "imagesUrl":"8.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>现在我们在本项目中安装Webpack作为依赖包。<br/>&darr;",
+        "code":"npm install --save-dev webpack",
+        "imagesUrl":"9.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>&darr;安装之后",
+        "imagesUrl":"10.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>发现'qdzn-two'文件夹下出现了'node_modules'文件夹<br/>&darr;",
+        "imagesUrl":"11.png",
+        "imagesDesc":""
+      },
+      {
+        "num":"四",
+        "title":"简单应用",
+        "desc":"现在我们先体验一下webpack的简单打包<br/>在'qdzn-two'的文件夹中创建两个文件夹。<br/>app文件夹和public文件夹。<br/>app文件夹用来存放原始数据和我们将写的JavaScript模块。<br/>public文件夹用来存放准备给浏览器读取的数据（包括使用webpack生成的打包后的js文件以及一个index.html文件）。<br/>另外还需要创建三个文件，index.html 文件放在public文件夹中。<br/>两个js文件（Greeter.js和main.js）放在app文件夹中<br/>&darr;项目结构",
+        "imagesUrl":"12.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>index.html文件只有最基础的html代码，它唯一的目的就是加载打包后的js文件（bundle.js）<br/>&darr;",
+        "code":"&lt;!DOCTYPE html&gt;<br/>&lt;html lang='en'&gt;<br/>&nbsp;&nbsp;&lt;head&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset='utf-8'&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;qdzn-two&lt;/title&gt;<br/>&nbsp;&nbsp;&lt;/head&gt;<br/>&nbsp;&nbsp;&lt;body&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id='root'&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src='bundle.js'&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/script&gt;<br/>&nbsp;&nbsp;&lt;/body&gt;<br/>&lt;/html&gt;",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>Greeter.js只包括一个用来返回包含问候信息的html元素的函数。<br/>&darr;",
+        "code":"module.exports = function() {<br/>&nbsp;&nbsp;var greet = document.createElement('div');<br/>&nbsp;&nbsp;greet.textContent = 'Hi there and greetings!';<br/>&nbsp;&nbsp;return greet;<br/>};",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>main.js用来把Greeter模块返回的节点插入页面。<br/>&darr;",
+        "code":"var greeter = require('./Greeter.js');<br/>document.getElementById('root').appendChild(greeter());",
+        "imagesDesc":""
+      },
+      {
+        "desc":"<br/>开始使用Webpack，在终端输入命令。<br/>&darr;",
+        "code":"webpack {入口文件} {存放bundle.js的地方}<br/><br/>webpack F:/apache-tomcat-7.0.40/webapps/qdzn-two/app/main.js F:/apache-tomcat-7.0.40/webapps/qdzn-two/public/bundle.js",
+        "imagesUrl":"13.png",
+        "imagesDesc":"&Delta;&nbsp;第二遍的命令说明的是只需要指定一个入口文件，webpack将自动识别项目所依赖的其它文件。"
+      },
+      {
+        "desc":"<br/>但是如果webpack没有进行全局安装，那么在终端中使用此命令时，需要额外指定其在node_modules中的地址，继续上面的例子，在终端中输入如下命令<br/>&darr;",
+        "code":"F:/apache-tomcat-7.0.40/webapps/qdzn-two/node_modules/.bin/webpack app/main.js public/bundle.js",
+        "imagesUrl":"14.png"
+      },
+      {
+        "desc":"<br/>可以看出webpack同时编译了main.js 和Greeter,js,现在打开index.html,可以看到<br/>&darr;",
+        "imagesUrl":"15.png",
+        "imagesDesc":"是不是很激动，我们已经成功的使用Webpack打包了一个文件了。不过如果在终端中进行复杂的操作，还是不太方便且容易出错的，下节课我们再来看看Webpack的另一种使用方法。"
+      }
+    ],
+    "end":[
+      {
+        "desc":"",
+        "imagesUrl":"20.jpg"
+      },
+      {
+        "desc":"切记皇阿玛的话噢~<br/>晚安咯~<br/><br/>",
+        "imagesUrl":""
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

@@ -1,0 +1,95 @@
+{"code":200,
+"data":{
+  "title":"CSS中伪类和伪元素的区别",
+  "id":"20161104",
+  "author":"宅女",
+  "time":"2016-11-04",
+  "type":"0",
+  "body":"",
+  "article":{
+    "articleClassName":"items_4",
+    "start":[
+      {
+        "desc":"像宅女这样没头脑的<br/>一直搞不清<br/>伪类和伪元素<br/>今天来花点时间征服它！",
+        "imagesUrl":"1.jpg"
+      },
+      {
+        "desc":"",
+        "imagesUrl":""
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"1",
+        "title":"定义",
+        "desc":"<strong>CSS 伪类</strong>&nbsp;用于向某些选择器添加特殊的效果。<br/><strong>CSS 伪元素</strong>&nbsp;用于将特殊的效果添加到某些选择器。",
+        "code":"",
+        "imagesUrl":""
+      },
+      {
+        "num":"2",
+        "title":"伪类",
+        "desc":"<strong>:active</strong>&nbsp;&nbsp;&nbsp;向被激活的元素添加样式。<br/><strong>:focus</strong>&nbsp;&nbsp;向拥有键盘输入焦点的元素添加样式。<br/><strong>:hover</strong>&nbsp;&nbsp;当鼠标悬浮在元素上方时，向元素添加样式。<br/><strong>:link</strong>&nbsp;&nbsp;向未被访问的链接添加样式。<br/><strong>:visited</strong>&nbsp;&nbsp;向已被访问的链接添加样式。<br/><strong>:first-child</strong>&nbsp;&nbsp;向元素的第一个子元素添加样式。<br/><strong>:lang</strong>&nbsp;&nbsp;向带有指定 lang 属性的元素添加样式。",
+        "code":"",
+        "imagesUrl":""
+      },
+      {
+        "num":"3",
+        "title":"伪元素",
+        "desc":"<strong>:first-letter</strong>&nbsp;&nbsp;向文本的第一个字母添加特殊样式。<br/><strong>:first-line</strong>&nbsp;&nbsp;向文本的首行添加特殊样式。<br/><strong>:before</strong>&nbsp;&nbsp;在元素之前添加内容。<br/><strong>:after</strong>&nbsp;&nbsp;在元素之后添加内容。",
+        "code":"",
+        "imagesUrl":""
+      },
+      {
+        "num":"4",
+        "title":"区别",
+        "desc":"这里用伪类 :first-child 和伪元素 :first-letter 来进行比较。<br/>",
+        "code":"p&gt;i:first-child{color:red;}<br/><br/>&lt;p&gt;<br/>&lt;i&gt;first&lt;/i&gt;<br/>&lt;i&gt;second&lt;/i&gt;<br/>&lt;/p&gt;",
+        "imagesUrl":"4.png",
+        "imagesWidth":"40%",
+        "imagesDesc":"&Delta;&nbsp;伪类 :first-child 添加样式到第一个子元素。<br/><br/>",
+        "ends":""
+      },
+      {
+        "desc":"如果我们不使用伪类，而希望达到上述效果，可以这样做：",
+        "code":".first-child{color:red;}<br/>&lt;p&gt;<br/>&lt;i class=\"first-child\"&gt;first&lt;/i&gt;<br/>&lt;i&gt;second&lt;/i&gt;<br/>&lt;/p&gt;",
+        "imagesDesc":"&Delta;&nbsp;给第一个子元素添加一个类，然后定义这个类的样式。<br/><br/>",
+        "ends":""
+      },
+      {
+        "desc":"接下来看伪元素",
+        "code":"p:first-letter{color:red;}<br/>&lt;p&gt;I am stephen lee.&lt;/p&gt;",
+        "imagesUrl":"5.png",
+        "imagesWidth":"40%",
+        "imagesDesc":"&Delta;&nbsp;添加样式到第一个字母。<br/><br/>",
+        "ends":""
+      },
+      {
+        "desc":"那么如果我们不使用伪元素，要达到上述效果，应该怎么做呢？",
+        "code":".first-letter{color:red;}<br/>&lt;p&gt;&lt;span class='first-letter'&gt;I&lt;/span&gt; am stephen lee.<br/>&lt;/p&gt;",
+        "imagesDesc":"&Delta;&nbsp;给第一个字母添加一个 span，然后给 span 增加样式。",
+        "ends":""
+      },
+      {
+        "num":"5",
+        "title":"总结",
+        "desc":"伪类的效果可以通过添加一个实际的类来达到，而伪元素的效果则需要通过添加一个实际的元素才能达到。<br/><br/>实际上 css3 为了区分两者，已经明确规定了伪类用一个冒号来表示，而伪元素则用两个冒号来表示。<br/><br/>但因为兼容性的问题，所以现在大部分还是统一的单冒号，但是抛开兼容性的问题，我们在书写时应该尽可能养成好习惯，区分两者。",
+        "code":"",
+        "imagesDesc":"",
+        "ends":""
+      }
+    ],
+    "end":[
+      {
+        "desc":"终于搞清楚了~<br/>其实也没什么难的嘛~",
+        "imagesUrl":"10.jpg"
+      },
+      {
+        "desc":"<br/><br/>"
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

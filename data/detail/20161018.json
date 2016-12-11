@@ -1,0 +1,92 @@
+{"code":200,
+"data":{
+  "title":"[-webkit-tap-highlight-color]移动端不得不说的CSS属性 - 前端基础",
+  "id":"20161018",
+  "author":"宅女",
+  "time":"2016-10-18",
+  "type":"0",
+  "body":"",
+  "article":{
+    "articleClassName":"items_4",
+    "start":[
+      {
+        "desc":"忽然发现<br/>CSS的世界也很庞大<br/>还有太多不知道的属性",
+        "imagesUrl":"1.gif"
+      },
+      {
+        "desc":"不过<br/>现在起步开始梳理<br/>也不晚<br/>只要一直走，就不会掉队",
+        "imagesUrl":"2.gif"
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"1",
+        "title":"发现问题",
+        "desc":"昨天，Android程序员在做移动端APP时，遇到一个问题，就是在手机上点击&lt;a&gt;链接的时候，会有半透明的背景色，让页面看起来也不是很好看，所以就需要把这个去掉，于是就找到了这个CSS3属性。",
+        "code":"-webkit-tap-highlight-color",
+        "imagesUrl":"3.png",
+        "imagesWidth":"4rem",
+        "imagesDesc":"在手机上点击&lt;a&gt;链接的时候，会有半透明的背景色"
+      },
+      {
+      "num":"2",
+      "title":"定义",
+      "desc":"在移动端上，有事件监听的元素被点击的时候会被高亮显示，而-webkit-tap-highlight-color属性会在当用户点击iOS的Safari浏览器中的链接或JavaScript的可点击的元素时，覆盖显示的高亮颜色。",
+      "code":"",
+      "imagesUrl":"",
+      "imagesDesc":""
+      },
+      {
+        "num":"3",
+        "title":"语法",
+        "desc":"",
+        "code":"-webkit-tap-highlight-color：color | transparent",
+        "imagesUrl":"",
+        "imagesDesc":"webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节。<br/><br/>该属性可以只设置透明度。如果未设置透明度，iOS Safari使用默认的透明度。当透明度设为0，则会禁用此属性；当透明度设为1，元素在点击时不可见。"
+      },
+      {
+        "num":"4",
+        "title":"取值",
+        "desc":"color：颜色值<br/>transparent：透明值，常用于android平台",
+        "code":"",
+        "imagesUrl":"",
+        "imagesDesc":""
+      },
+      {
+        "num":"5",
+        "title":"兼容性",
+        "desc":"iOS 1.1.1及更高版本的Safari浏览器可用。<br/>大部分android手机也是支持的，只是显示效果有所不同。",
+        "code":"",
+        "imagesUrl":"",
+        "imagesDesc":""
+      },
+      {
+        "num":"6",
+        "title":"实例",
+        "desc":"",
+        "code":"-webkit-tap-highlight-color: rgba(255,0,0,0.5);",
+        "imagesUrl":"4.png",
+        "imagesWidth":"4rem",
+        "imagesDesc":"设置高亮色为50%透明的红色"
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"",
+        "code":"-webkit-tap-highlight-color: transparent;",
+        "imagesUrl":"5.png",
+        "imagesWidth":"4rem",
+        "imagesDesc":"设置高亮色为透明"
+      }
+    ],
+    "end":[
+      {
+        "desc":"新技能get到了吗~",
+        "imagesUrl":"6.jpg"
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

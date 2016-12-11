@@ -1,0 +1,78 @@
+{"code":200,
+"data":{
+  "title":"CSS选择器（三） - 前端基础",
+  "id":"20161019",
+  "author":"宅女",
+  "time":"2016-10-19",
+  "type":"0",
+  "body":"",
+  "article":{
+    "articleClassName":"items_2",
+    "start":[
+      {
+        "desc":"Word妈<br/>CSS居然有这么多的选择器~",
+        "imagesUrl":"1.png"
+      },
+      {
+        "desc":"CSS选择器回顾<br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161010'>CSS选择器（一）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161017'>CSS选择器（二）</a>",
+        "imagesUrl":""
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"18",
+        "title":"A:nth-child(n)",
+        "desc":"<strong>含义：</strong>设定一个序列元素（比如li、tr）中的第n个元素（从1开始算起）的样式。<br/>n 可以是数字、关键词或公式。<br/>odd 和 even 是可用于匹配下标是奇数或偶数的子元素的关键词。<br/><strong>例子：</strong>",
+        "code":"li:nth-child(3){<br/>&nbsp;&nbsp;color:red;<br/>}",
+        "imagesUrl":"2.png",
+        "imagesDesc":"&Delta;&nbsp;给第三个列表元素li设置样式。"
+      },
+      {
+        "code":"li:nth-child(2n){<br/>&nbsp;&nbsp;background:red;<br/>}",
+        "imagesUrl":"3.png",
+        "imagesDesc":"&Delta;&nbsp;给第偶数个元素设置样式，可以用它来实现隔行换色。<br/>偶数个元素也可以写成:nth-child(even)。",
+        "ends":"<strong>兼容浏览器：</strong>IE9+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"19",
+        "title":"A:nth-last-child(n)",
+        "desc":"<strong>含义：</strong>与X:nth-child(n)功能类似，不同的是它从一个序列的最后一个元素开始算起。<br/>n 可以是数字、关键词或公式。<br/><strong>例子：</strong>",
+        "code":"li:nth-last-child(2){<br/>&nbsp;&nbsp;color:red;<br/>}",
+        "imagesUrl":"4.png",
+        "imagesDesc":"&Delta;&nbsp;给倒数第二个列表元素设置样式",
+        "ends":"<strong>兼容浏览器：</strong>IE9+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"20",
+        "title":"A:nth-of-type(n)",
+        "desc":"<strong>含义：</strong>与X:nth-child(n)功能类似，不同的是它匹配的不是某个序列元素，而是元素类型。<br/>n 可以是数字、关键词或公式。<br/><strong>例子：</strong>",
+        "code":"p:nth-of-type(odd)<br/>{<br/>&nbsp;&nbsp;background:#ff0000;<br/>}",
+        "imagesUrl":"5.png",
+        "imagesDesc":"&Delta;&nbsp;给其父元素的奇数个和偶数个p元素设置样式",
+        "ends":"<strong>兼容浏览器：</strong>IE9+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"21",
+        "title":"A:nth-last-of-type(n)",
+        "desc":"<strong>含义：</strong>与X:nth-of-type(n)功能类似，不同的是它从元素最后一次出现开始算起。<br/>n 可以是数字、关键词或公式。<br/><strong>例子：</strong>",
+        "code":"p:nth-last-of-type(2){<br/>&nbsp;&nbsp;background:#ff0000;<br/>}",
+        "imagesUrl":"6.png",
+        "imagesDesc":"&Delta;&nbsp;给其父元素的倒数第二个p元素设置样式。",
+        "ends":"<strong>兼容浏览器：</strong>IE9+、Firefox、Chrome、Safari。"
+      }
+    ],
+    "end":[
+      {
+        "desc":"",
+        "imagesUrl":"13.jpg"
+      },
+      {
+        "desc":"晚安咯~<br/><br/>",
+        "imagesUrl":""
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

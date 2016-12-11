@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" lang="zh-cmn-Hans" id="ng-app" class="-webkit- ng-scope" data-ng-app="wtOuterApp"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <title>时间管理</title>
+    <link rel="stylesheet" href="/stylesheets/mgt/main.css">
+    <meta name="author" content="Worktile Inc.">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<meta property="qc:admins" content="31403756172341456375">
+
+<meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=no">
+<meta name="keywords" content="">
+    <!--[if lt IE 9]>
+<script src="/stylesheets/mgt/html5shiv.min.js"></script>
+<script src="/stylesheets/mgt/respond.min.js"></script>
+<![endif]-->
+<!--[if lte IE 8]>
+<script src="/stylesheets/mgt/json2.js"></script>
+<script>
+    document.createElement('data-ng-include');
+    document.createElement('data-ng-pluralize');
+    document.createElement('data-ng-view');
+    document.createElement('data-ui-view');
+    document.createElement('slide');
+</script>
+<![endif]-->
+
+    
+<script type="text/javascript" async="" src="/javascripts/mgt/atrk.js"></script><script async="" src="/javascripts/mgt/sensorsdata.1.3.5.js"></script><script charset="utf-8" src="/javascripts/mgt/lxb.js"></script><script charset="utf-8" src="/javascripts/mgt/v.js"></script><script>
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6091ae364b1e135eee2ab1cd60659210' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="/javascripts/mgt/h.js" type="text/javascript"></script>
+<style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+<body class="">
+<div id="wrap-all" class=""><div id="main" class="inner ">
+<div class="all-index-wrap">
+    <!-- 头部-首页 -->
+<nav class="all-header-area navbar navbar-fixed-top scrolled" id="navbar-worktile">
+  <div class="navbar-container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand all-index-logo" href="/mgt/index" title="worktile">
+        <i class="wtfont wtf-worktile wtfont1"></i>
+        <i class="wtfont wtf-worktiletext wtfont2"></i>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown all-index-login-dropdown">
+          <a href="/mgt/index" class="dropdown-toggle all-index-login text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">产品
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/mgt/index">企业版</a></li>
+            <li><a href="/mgt/index">基础版</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-collapse">
+          <a href="/mgt/index" class="version-link">企业版</a>
+        </li>
+        <li class="dropdown-collapse">
+          <a href="/mgt/index" class="version-link">基础版</a>
+        </li>
+        <li>
+          <a href="/mgt/index" class="version-link">价格</a>
+        </li>
+        <li class="dropdown all-index-login-dropdown">
+          <a href="/mgt/index" class="dropdown-toggle all-index-login text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">解决方案
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="more-text" href="/mgt/index">研发解决方案</a></li>
+            <li><a class="more-text" href="/mgt/index">电商解决方案</a></li>
+            <li><a class="more-text" href="/mgt/index">OKR探究实践</a></li>
+            <li><a class="more-text" href="/mgt/index">HR解决方案</a></li>
+          </ul>
+          <!--<ul class="dropdown-menu group-dropdown">-->
+            <!--<ul class="group-item">-->
+              <!--<li class="group-item-title">行业解决方案</li>-->
+              <!--<li><a class="more-text" href="https://pro.worktile.com/solution/dev">研发解决方案</a></li>-->
+              <!--<li><a class="more-text" href="https://pro.worktile.com/solution/ecommerce">电商解决方案</a></li>-->
+              <!--<li><a class="more-text" href="https://pro.worktile.com/solution/okr">OKR探究实践</a></li>-->
+              <!--<li><a class="more-text" href="https://pro.worktile.com/solution/hr">HR解决方案</a></li>-->
+            <!--</ul>-->
+            <!--<ul class="group-item">-->
+              <!--<li class="group-item-title">角色解决方案</li>-->
+              <!--<li><a class="more-text" href="https://pro.worktile.com/solution/dev">研发解决方案</a></li>-->
+              <!--<li><a class="more-text" href="https://pro.worktile.com/solution/ecommerce">电商解决方案</a></li>-->
+              <!--<li><a class="more-text" href="https://pro.worktile.com/solution/okr">OKR探究实践</a></li>-->
+              <!--<li><a class="more-text" href="https://pro.worktile.com/solution/hr">HR解决方案</a></li>-->
+            <!--</ul>-->
+          <!--</ul>-->
+        </li>
+        <li class="dropdown-collapse">
+          <a class="more-text" href="/mgt/index">研发解决方案</a>
+        </li>
+        <li class="dropdown-collapse">
+          <a class="more-text" href="/mgt/index">电商解决方案</a>
+        </li>
+        <li class="dropdown-collapse">
+          <a class="more-text" href="/mgt/index">OKR探究实践</a>
+        </li>
+        <li class="dropdown-collapse">
+          <a class="more-text" href="/mgt/index">HR解决方案</a>
+        </li>
+        <li class="dropdown all-index-login-dropdown" style="margin-right: 20px">
+          <a href="/mgt/index" class="dropdown-toggle all-index-login text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">支持
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/mgt/index">官方博客</a></li>
+            <li><a href="/mgt/index">用户社区</a></li>
+            <li><a href="/mgt/index">客户成功</a></li>
+            <li><a href="/mgt/index">帮助中心</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-collapse">
+          <a href="/mgt/index" class="version-link">官方博客</a>
+        </li>
+        <li class="dropdown-collapse">
+          <a href="/mgt/index" class="version-link">用户社区</a>
+        </li>
+        <li class="dropdown-collapse">
+          <a href="/mgt/index" class="version-link">客户成功</a>
+        </li>
+        <li class="dropdown-collapse">
+          <a href="/mgt/index" class="version-link">帮助中心</a>
+        </li>
+        <li class="dropdown all-index-login-dropdown">
+          <a href="/mgt/index" class="dropdown-toggle all-index-login all-index-login-login text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-login">登录</button>
+            <!--<i class="fa fa-sort-desc "></i>-->
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/mgt/login">登录</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-collapse">
+          <a href="/mgt/login" class="version-link">登录</a>
+        </li>
+        <li class="text-center">
+          <a href="/mgt/register" class="btn btn-regist">注册</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div id="all-index-banner-bodys" class="all-index-banner all-index-7" array="0,1,2,7">
+        <!--<div id="all-index-body-1"  class="all-index-body -year">-->
+          <!--<div class="all-index-body-content">-->
+            <!--<img class="-content" src="https://cdn.worktile.com/images/index/index_all_bg_5_inner.png"/>-->
+          <!--</div>-->
+          <!--<div class="all-index-body-footer -year">-->
+            <!--<a href="https://worktile.com/events/3rd_anniversary" target="_blank" class="btn-primary-index">立即参与</a>-->
+            <!--<br/>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      <!--<div id="all-index-body6"  class="all-index-body -year">-->
+        <!--<div class="all-index-body-content">-->
+          <!--<img class="-content" src="https://cdn.worktile.com/images/index/index_all_bg_6_inner.png"/>-->
+        <!--</div>-->
+        <!--<div class="all-index-body-footer -year">-->
+          <!--<a href="https://worktile.com/events/3rd_anniversary" target="_blank" class="btn-primary-index">立即参与</a>-->
+          <!--<br/>-->
+        <!--</div>-->
+      <!--</div>-->
+
+        <div id="all-index-body0" class="all-index-body hidden opacity">
+            <div class="all-index-body-title">
+                <!--互联网时代的工作方式-->
+                更好用的企业协作平台
+            </div>
+            <div class="all-index-body-content">
+                <p> Worktile，让工作更简单<br>&nbsp;</p>
+            </div>
+            <div class="all-index-body-footer">
+                <a href="/mgt/register" target="_blank" class="btn-primary-index">免费注册</a>
+                <br>
+            </div>
+        </div>
+        <div id="all-index-body1" class="all-index-body hidden opacity">
+            <div class="all-index-body-title">
+                Worktile + <img src="/images/mgt/index_all_bg_dingtalk_icon.png" height="50" alt="">
+            </div>
+            <div class="all-index-body-content">
+                <p>项目管理用 Worktile，让企业协作更高效
+                    <br>
+                    工作交流用钉钉，让任务必达
+                </p>
+            </div>
+
+            <div class="all-index-body-footer">
+                <a href="/mgt/index" target="_blank" class="btn-primary-index">立即领取</a>
+                <br>
+                <a href="/mgt/index" target="_blank" class="all-index-body-footer-getdingtalk">
+                    <h4>价值20万的</h4><br>
+                    钉钉办公软件免费抢</a>
+            </div>
+
+
+        </div>
+        <div id="all-index-body2" class="all-index-body hidden opacity">
+            <div class="all-index-body-title">
+                一站式研发管理解决方案
+            </div>
+            <div class="all-index-body-content">
+                <p>项目进度清晰掌握，快速跟进产品Bug
+                    <br>
+                    多维度统计报表，文件文档有序管理</p>
+            </div>
+            <div class="all-index-body-footer">
+                <a href="/mgt/register" target="_blank" class="btn-primary-index">免费注册</a>
+
+                <!--<div class="all-index-body-footer-phone">-->
+                <!--联系电话：400-805-6966-->
+                <!--</div>-->
+                <br>
+                <a href="/mgt/index" target="_blank" class="all-index-body-footer-getsolution">
+                    免费获取解决方案 &gt;&gt;
+                </a>
+            </div>
+        </div>
+        <div id="all-index-body7" class="all-index-body">
+        <div class="all-index-body-title">
+          HR 解决方案
+        </div>
+        <div class="all-index-body-content">
+          <p>告别冗长混乱的招聘流程，实现清晰便捷的员工管理
+            <br>
+            轻松安排培训事宜，灵活应对考勤审批</p>
+        </div>
+        <div class="all-index-body-footer">
+          <a href="/mgt/register" target="_blank" class="btn-primary-index">免费注册</a>
+
+          <!--<div class="all-index-body-footer-phone">-->
+          <!--联系电话：400-805-6966-->
+          <!--</div>-->
+          <br>
+          <a href="/mgt/index" target="_blank" class="all-index-body-footer-getsolution">
+            免费获取解决方案 &gt;&gt;
+          </a>
+        </div>
+      </div>
+
+
+        <!--<div id="all-index-body3" class="all-index-body hidden">-->
+            <!--<div class="all-index-body-title">-->
+                <!--降低运营成本，提高团队效率-->
+            <!--</div>-->
+            <!--<div class="all-index-body-content">-->
+                <!--<p>Worktile『电商解决方案』<br>日常运营、大促筹备、售后跟踪、研发管理一切尽在掌握。</p>-->
+            <!--</div>-->
+            <!--<div class="all-index-body-footer">-->
+                <!--<a href="/register" target="_blank" class="btn-primary-index">免费注册</a>-->
+                <!--<br/>-->
+                <!--<a href="https://pro.worktile.com/solution/ecommerce" target="_blank"-->
+                   <!--class="all-index-body-footer-getsolution">-->
+                    <!--免费获取解决方案 &gt;&gt;-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div id="all-index-body4" class="all-index-body hidden">-->
+          <!--<div class="all-index-body-title">-->
+            <!--OKR 探究与实施-->
+          <!--</div>-->
+          <!--<div class="all-index-body-content">-->
+            <!--&lt;!&ndash;<p>Worktile『电商解决方案』<br>日常运营、大促筹备、售后跟踪、研发管理一切尽在掌握。</p>&ndash;&gt;-->
+            <!--<p><br>突出主要目标，量化关键结果，高效沟通，专注集中。</p>-->
+          <!--</div>-->
+          <!--<div class="all-index-body-footer">-->
+            <!--<a href="/register" target="_blank" class="btn-primary-index">免费注册</a>-->
+            <!--<br/>-->
+            <!--<a href="https://pro.worktile.com/solution/ecommerce" target="_blank"-->
+               <!--class="all-index-body-footer-getsolution">-->
+              <!--免费获取解决方案 &gt;&gt;-->
+            <!--</a>-->
+          <!--</div>-->
+      <!--</div>-->
+        <div class="all-index-circle">
+            <span id="circle0" class="circle"></span>
+            <span id="circle1" class="circle"></span>
+            <span id="circle2" class="circle"></span>
+            <span id="circle7" class="circle active"></span>
+
+            <!--<span id="circle3" class="circle"></span>-->
+            <!--<span id="circle4" class="circle"></span>-->
+        </div>
+    </div>
+
+    <div class="all-index-modules">
+        <div class="all-index-modules-wrap">
+            <div class="all-index-modules-header">
+                <div class="all-index-modules-header-title">
+                  协作的升级，管理的延伸
+                  <!--更好用的企业协作平台-->
+                </div>
+                <hr class="all-index-modules-header-hr">
+            </div>
+            <div class="all-index-modules-body">
+                <ul class="all-index-modules-ul">
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-1.png" alt="">
+                            <span>企业IM</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-2.png" alt="">
+                            <span>任务看板</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-3.png" alt="">
+                            <span>项目管理</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-4.png" alt="">
+                            <span>日程安排</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-5.png" alt="">
+                            <span>企业网盘</span>
+                        </div>
+                    </li>
+                    <!--</ul>-->
+                    <!--<ul class="all-index-modules-ul">-->
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-6.png" alt="">
+                            <span>商务电话</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-7.png" alt="">
+                            <span>日志简报</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-8.png" alt="">
+                            <span>流程审批</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-9.png" alt="">
+                            <span>服务集成</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="all-index-modules-item">
+                            <img src="/images/mgt/module-10.png" alt="">
+                            <span>企业通讯录</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="all-index-modules-footer">
+                <a href="/mgt/index" target="_blank" class=" btn-primary-index">了解企业版更多详情</a><br>
+                <a href="/mgt/index" target="_blank" class="btn btn-link">或者 立即体验</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="all-index-introduce">
+        <div class="container-fluid">
+            <div class="col-md-5">
+                <div class="all-index-introduce-content pull-right m-t-100 m-r-65">
+                    <div class="all-index-introduce-title">
+                        <span>企业沟通更流畅</span>
+                        <hr>
+                    </div>
+                    <ul class="all-index-introduce-list">
+                        <li target="introduce-0-0" class="">
+                            <span class="introduce-radio"></span><span class="title">私聊群聊，业务信息高速流转</span>
+                        </li>
+                        <li target="introduce-0-1" class="active">
+                            <span class="introduce-radio"></span><span class="title">商务电话，随时发起多人会议</span>
+                        </li>
+                        <!--<li target="introduce-0-2">-->
+                        <!--<span class="introduce-radio"></span><span class="title">高清视频，远程享受面对面交流</span>-->
+                        <!--</li>-->
+                    </ul>
+                    <a href="/mgt/index" target="_blank" class="try-now-btn">立即体验&gt;&gt;</a>
+                </div>
+            </div>
+            <div class="col-md-7 introduce-0">
+                <div class="divider">
+                    <img class="img-responsive visible-hidden" src="/images/mgt/introduce-1-0.png" alt="">
+                </div>
+                <img class="introduce-img img-responsive introduce-0-0" src="/images/mgt/introduce-1-0.png" alt="">
+                <img class="introduce-img img-responsive introduce-0-1 opacity" src="/images/mgt/introduce-1-1.png" alt="">
+                <!--<img class="introduce-img img-responsive introduce-0-2" src="https://cdn.worktile.com/images/index/introduce-1-0.png" alt=""/>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="all-index-introduce">
+        <div class="container-fluid">
+            <div class="col-md-7 introduce-1">
+                <div class="divider">
+                    <img class="img-responsive visible-hidden" src="/images/mgt/introduce-2-0.png" alt="">
+                </div>
+                <img class="introduce-img img-responsive introduce-1-0 opacity-left" src="/images/mgt/introduce-2-0.png" alt="">
+                <img class="introduce-img img-responsive introduce-1-1 opacity-left opacity" src="/images/mgt/introduce-2-1.png" alt="">
+                <img class="introduce-img img-responsive introduce-1-2 opacity-left" src="/images/mgt/introduce-2-2.png" alt="">
+            </div>
+            <div class="col-md-5">
+                <div class="all-index-introduce-content pull-left m-t-80 m-l-85">
+                    <div class="all-index-introduce-title">
+                        <span>成员协作更高效</span>
+                        <hr>
+                    </div>
+                    <ul class="all-index-introduce-list">
+                        <li target="introduce-1-0" class="">
+                            <span class="introduce-radio"></span><span class="title">任务看板，敏捷协作创造价值</span>
+                        </li>
+                        <li target="introduce-1-1" class="active">
+                            <span class="introduce-radio"></span><span class="title">团队日历，智能共享日程安排</span>
+                        </li>
+                        <li target="introduce-1-2" class="">
+                            <span class="introduce-radio"></span><span class="title">企业网盘，轻松存储同步共享</span>
+                        </li>
+                    </ul>
+                    <a href="/mgt/index" target="_blank" class="try-now-btn">立即体验&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="all-index-introduce no-border">
+        <div class="container-fluid">
+            <div class="col-md-5">
+                <div class="all-index-introduce-content pull-right m-t-80 m-r-65">
+                    <div class="all-index-introduce-title">
+                        <span>办公应用更简单</span>
+                        <hr>
+                    </div>
+                    <ul class="all-index-introduce-list">
+                        <li target="introduce-2-0" class="">
+                            <span class="introduce-radio"></span><span class="title">日报周报，随时跟进成员工作情况</span>
+                        </li>
+                        <li target="introduce-2-1" class="active">
+                            <span class="introduce-radio"></span><span class="title">轻量级审批，指尖办公一触即发</span>
+                        </li>
+                        <li target="introduce-2-2" class="">
+                            <span class="introduce-radio"></span><span class="title">100+服务集成，连接内外无限拓展</span>
+                        </li>
+                    </ul>
+                    <a href="/mgt/index" target="_blank" class="try-now-btn">立即体验&gt;&gt;</a>
+                </div>
+            </div>
+            <div class="col-md-7 introduce-2">
+                <div class="divider">
+                    <img class="img-responsive visible-hidden" src="/images/mgt/introduce-3-1.png" alt="">
+                </div>
+                <img class="introduce-img img-responsive introduce-2-0" src="/images/mgt/introduce-3-0.png" alt="">
+                <img class="introduce-img img-responsive introduce-2-1 opacity" src="/images/mgt/introduce-3-1.png" alt="">
+                <img class="introduce-img img-responsive introduce-2-2" src="/images/mgt/introduce-3-2.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="all-index-projects">
+        <div class="all-index-projects-header">
+            <span>
+                <span class="strong">20+</span>
+                <span>行业，</span>
+                <span class="strong">10000000+</span>
+                <span>项目正在使用</span>
+                <b>Worktile</b>
+            </span>
+        </div>
+        <div class="all-index-projects-body">
+            <ul class="all-index-projects-ul">
+                <li>
+                    <a href="/mgt/index">
+                        <div class="project-img-wrap">
+                            <img class="project-img img-responsive" src="/images/mgt/project-0.png" alt="">
+                            <div class="project-img-mask"></div>
+                        </div>
+                        <div class="title">
+                            互联网行业
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="project-img-wrap">
+                        <img class="project-img img-responsive" src="/images/mgt/project-1.png" alt="">
+                        <div class="project-img-mask"></div>
+                    </div>
+                    <div class="title">
+                        政府
+                    </div>
+                </li>
+                <li>
+                    <div class="project-img-wrap">
+                        <img class="project-img img-responsive" src="/images/mgt/project-2.png" alt="">
+                        <div class="project-img-mask"></div>
+                    </div>
+                    <div class="title">
+                        咨询行业
+                    </div>
+                </li>
+                <li>
+                    <div class="project-img-wrap">
+                        <img class="project-img img-responsive" src="/images/mgt/project-3.png" alt="">
+                        <div class="project-img-mask"></div>
+                    </div>
+                    <div class="title">
+                        外贸
+                    </div>
+                </li>
+                <li>
+                    <div class="project-img-wrap">
+                        <img class="project-img img-responsive" src="/images/mgt/project-4.png" alt="">
+                        <div class="project-img-mask"></div>
+                    </div>
+                    <div class="title">
+                        律师事务所
+                    </div>
+                </li>
+                <li>
+                    <div class="project-img-wrap">
+                        <img class="project-img img-responsive" src="/images/mgt/project-5.png" alt="">
+                        <div class="project-img-mask"></div>
+                    </div>
+                    <div class="title">
+                        制造业
+                    </div>
+                </li>
+                <li>
+                    <div class="project-img-wrap">
+                        <img class="project-img img-responsive" src="/images/mgt/project-6.png" alt="">
+                        <div class="project-img-mask"></div>
+                    </div>
+                    <div class="title">
+                        游戏
+                    </div>
+                </li>
+                <li>
+                    <div class="project-img-wrap">
+                        <img class="project-img img-responsive" src="/images/mgt/project-7.png" alt="">
+                        <div class="project-img-mask"></div>
+                    </div>
+                    <div class="title">
+                        广告
+                    </div>
+                </li>
+                <li>
+                    <a href="/mgt/index">
+                        <div class="project-img-wrap">
+                            <img class="project-img img-responsive" src="/images/mgt/project-8.png" alt="">
+                            <div class="project-img-mask"></div>
+                        </div>
+                        <div class="title">
+                            电商行业
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="project-img-wrap">
+                        <img class="project-img img-responsive" src="/images/mgt/project-9.png" alt="">
+                        <div class="project-img-mask"></div>
+                    </div>
+                    <div class="title">
+                        教育行业
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="all-index-teams">
+        <div class="all-index-teams-wrap">
+            <div class="all-index-team-header">
+                <span>
+                    <span class="strong">500,000+</span>
+                    团队的选择
+                </span>
+            </div>
+            <div class="all-index-team-body">
+                <div class="divider">
+                    <div class="slogen visible-hidden">
+                        <span class="quotes">“</span>
+                        <span class="text">
+                        原来工作任务安排基本靠吼，靠纸笔记录，靠邮件混乱的交叉沟通，这样经常容易忘掉重要的事，也无法持续追踪跟进。Worktile让我们感受到一种新的工作方式，它不仅仅是工作任务的分解跟进管理这样简单，而是协助我和组员更加扁平化、透明化协作，持续优化工作流程。
+                    </span>
+                        <span class="quotes">”</span>
+                    </div>
+                </div>
+                <div class="slogen slogen0 active">
+                    <span class="quotes">“</span>
+                    <span class="text">
+                        原来工作任务安排基本靠吼，靠纸笔记录，靠邮件混乱的交叉沟通，这样经常容易忘掉重要的事，也无法持续追踪跟进。Worktile让我们感受到一种新的工作方式，它不仅仅是工作任务的分解跟进管理这样简单，而是协助我和组员更加扁平化、透明化协作，持续优化工作流程。
+                    </span>
+                    <span class="quotes">”</span>
+                </div>
+                <div class="slogen slogen1">
+                    <span class="quotes">“</span>
+                    <span class="text">
+                        在研发过程，经常会涉及到团队的协同，以及版本迭代规划、需求拆分，Worktile 能很好解决我们团队内部的沟通，让项目的进展更加透明。此外轻量级的审批、自定义审批表单、以及日报周报，也给我们提供了很多方便。
+                    </span>
+                    <span class="quotes">”</span>
+                </div>
+                <div class="slogen slogen2">
+                    <span class="quotes">“</span>
+                    <span class="text">
+                        我们用Worktile 来 “搭建一座桥梁”，成为链接我们团队各个物理空间的 “纽带”，使团队所有同事可以拧成一股绳，集中在一个沟通平台，实时交流沟通、进行任务管理、实现紧密协作。
+                    </span>
+                    <span class="quotes">”</span>
+                </div>
+                <div class="slogen slogen3">
+                    <span class="quotes">“</span>
+                    <span class="text">
+                        Worktile让企业内部的任务、沟通、日程、文件等信息流无缝对接，针对项目、成员、企业网盘有丰富的权限管理功能，能有效管控信息阅读和修改权限，还支持企业自定义工作方式、组装功能模块，极大的满足了企业打造符合自身业务流程的需求。
+                    </span>
+                    <span class="quotes">”</span>
+                </div>
+                <div class="slogen slogen5">
+                    <span class="quotes">“</span>
+                    <span class="text">
+                        Worktile的任务看板形式让研发项目管理更加灵活和协作化，团队每个人都能一目了然项目当前进度，同事的工作量，以及明晰的研发迭代需求管理，极大的提高了工作效率以及成员的积极性和参与性，全面提升工作效能。
+                    </span>
+                    <span class="quotes">”</span>
+                </div>
+                <div class="slogen slogen4">
+                    <span class="quotes">“</span>
+                    <span class="text">
+                        Worktile 的看板式管理方式简明直观，每周要迭代的需求，每天的计划与进展，都可以一目了然。除此之外，Worktile还有一个很灵活的地方，可以实现跨团队协作，这对我们来说是十分方便的。
+                    </span>
+                    <span class="quotes">”</span>
+                </div>
+                <ul class="all-index-team-logo">
+                    <li class="active" target="slogen0">
+                        <img class="team-img img-responsive" src="/images/mgt/team-4.png" alt="">
+                    </li>
+                    <li target="slogen1" class="">
+                        <img class="team-img img-responsive" src="/images/mgt/team-1.png" alt="">
+                    </li>
+                    <li target="slogen2" class="">
+                        <img class="team-img img-responsive" src="/images/mgt/team-3.png" alt="">
+                    </li>
+                    <li target="slogen3" class="">
+                        <img class="team-img img-responsive" src="/images/mgt/team-2.png" alt="">
+                    </li>
+                    <li target="slogen4" class="">
+                        <img class="team-img img-responsive" src="/images/mgt/team-5.png" alt="">
+                    </li>
+                    <li target="slogen5" class="">
+                        <img class="team-img img-responsive" src="/images/mgt/team-0.png" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="all-index-experience">
+        <div class="all-index-experience-header">
+            <!--Worktile,专为企业打造的协同办公管理平台-->
+          Worktile，更好用的企业协作平台
+        </div>
+        <div class="all-index-experience-body">
+            <a href="/mgt/index" target="_blank" class="btn btn-primary-index">立即体验</a>
+            <br><br>
+            <a href="/mgt/index" target="_blank" class="all-index-experience-link">联系客户顾问</a>
+        </div>
+    </div>
+
+    <!--公用尾部导航-->
+<div class="all-footer-nav-area">
+    <div class="container-fluid columns clearfix">
+        <div class="row hidden-xs">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <ul class="column">
+                            <li><h2>产&nbsp;品</h2></li>
+                            <li><a target="_self" href="/mgt/index">企业版</a></li>
+                            <li><a target="_self" href="/mgt/index">基础版</a></li>
+                            <li><a target="_self" href="/mgt/index">价格</a></li>
+                            <li><a target="_self" href="/mgt/index">客户案例</a></li>
+                            <li><a target="_self" href="/mgt/index">解决方案</a></li>
+                            <li><a target="_self" href="/mgt/index">更新日志</a></li>
+                            <li><a target="_self" href="/mgt/index">数据安全</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <ul class="column">
+                            <li><h2>公&nbsp;司</h2></li>
+                            <li><a target="_self" href="/mgt/index">媒体报道</a></li>
+                            <li><a target="_self" href="/mgt/index">关于我们</a></li>
+                            <li><a target="_self" href="/mgt/index">团队介绍</a></li>
+                            <li><a target="_self" href="/mgt/index">加入我们</a></li>
+                            <li><a target="_self" href="/mgt/index">用户说</a></li>
+                            <li><a target="_self" href="/mgt/index">谁在用</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <ul class="column">
+                            <li><h2>支&nbsp;持</h2></li>
+                            <li><a target="_self" href="/mgt/index">官方博客</a></li>
+                            <li><a target="_self" href="/mgt/index">用户社区</a></li>
+                            <li><a target="_self" href="/mgt/index">用户指南</a></li>
+                            <li><a target="_self" href="/mgt/index">视频教程</a></li>
+                            <li><a target="_self" href="/mgt/index">在线模板</a></li>
+                            <li><a target="_self" href="/mgt/index">最佳实践</a></li>
+                            <li><a target="_self" href="/mgt/index">企业版帮助</a></li>
+                            <li><a target="_self" href="/mgt/index">基础版帮助</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <ul class="column">
+                            <li><h2>更&nbsp;多</h2></li>
+                            <li><a target="_self" href="/mgt/index">联系我们</a></li>
+                            <li><a target="_self" href="/mgt/index">隐私声明</a></li>
+                            <li><a target="_self" href="/mgt/index">服务条款</a></li>
+                            <li><a target="_self" href="/mgt/index">开发者</a></li>
+                            <li><a target="_self" href="/mgt/index">Workshop</a></li>
+                            <li><a target="_self" href="/mgt/index">Plus计划</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <ul class="column colum-right">
+                    <li><span class="icon-gamepad">
+                                <i class="wtfont wtf-worktile wtfont1"></i>
+                                <i class="wtfont wtf-worktiletext wtfont2"></i>
+                            </span>
+                    </li>
+                    <li>
+                        <!--<h6>© 2015 Worktile.com</h6>-->
+                        <!--<h6>京ICP备13017353号-3</h6>-->
+                        <!--<h6>京公网安备11010802012357号</h6>-->
+                        <h4><a href="/mgt/index" target="_blank"><i class="fa fa-phone-square"></i>预约 Worktile 客户顾问</a></h4>
+                        <h3>400 805 6966</h3>
+                    </li>
+                    <li>
+                        <a class="a-icon a-weixin"><i class="fa fa-weixin"></i><span class="pop-winxin"><span>微信服务号:</span><img src="/images/mgt/contact-code.png" alt="Worktile官方微信"></span></a>
+                        <a class="a-icon" href="/mgt/index" target="_blank"><i class="fa fa-weibo"></i></a>
+                        <a class="a-icon" href="/mgt/index"><i class="fa fa-envelope"></i></a>
+                        <!--<a class="a-icon a-qq"><i class="fa fa-qq"></i><span class="pop-qq"><span>官方QQ群</span><p>-->
+                                <!--3群:325482073</p></span></a>-->
+                        <a class="a-icon" href="https://worktile.com/blog/rss" target="_blank"><i class="fa fa-rss"></i></a>
+                    </li>
+                    <!--<li>-->
+                    <!--<a class="trust-icon" rel="nofollow" href="http://t.knet.cn/index_new.jsp" target="_blank"></a>-->
+                    <!--<a class="safe-icon" rel="nofollow" href="https://seal.godaddy.com/verifySeal?sealID=yPHt8p0KLviEhwFacMjEXfEVvyVCWMml6bbEWEoDA4zNg0JnL5Bxz9HZ2nVP" target="_blank"></a>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="visible-xs text-center p-lr">
+
+            <a target="_self" href="/mgt/index">企业版</a>
+            <a target="_self" href="/mgt/index">基础版</a>
+            <a target="_self" href="/mgt/index">价格</a>
+            <a target="_self" href="/mgt/index">客户案例</a>
+            <a target="_self" href="/mgt/index">解决方案</a>
+            <a target="_self" href="/mgt/index">更新日志</a>
+            <a target="_self" href="/mgt/index">数据安全</a>
+
+            <a target="_self" href="/mgt/index">媒体报道</a>
+            <a target="_self" href="/mgt/index">关于我们</a>
+            <a target="_self" href="/mgt/index">团队介绍</a>
+            <a target="_self" href="/mgt/index">加入我们</a>
+            <a target="_self" href="/mgt/index">用户说</a>
+            <a target="_self" href="/mgt/index">谁在用</a>
+
+            <a target="_self" href="/mgt/index">官方博客</a>
+            <a target="_self" href="/mgt/index">用户社区</a>
+            <a target="_self" href="/mgt/index">用户指南</a>
+            <a target="_self" href="/mgt/index">视频教程</a>
+            <a target="_self" href="/mgt/index">在线模板</a>
+            <a target="_self" href="/mgt/index">最佳实践</a>
+            <a target="_self" href="/mgt/index">企业版帮助</a>
+            <a target="_self" href="/mgt/index">基础版帮助</a>
+
+            <a target="_self" href="/mgt/index">联系我们</a>
+            <a target="_self" href="/mgt/index">隐私声明</a>
+            <a target="_self" href="/mgt/index">服务条款</a>
+            <a target="_self" href="/mgt/index">开发者</a>
+            <a target="_self" href="/mgt/index">Workshop</a>
+            <a target="_self" href="/mgt/index">Plus计划</a>
+
+        </div>
+    </div>
+</div>
+
+    <!--公用尾部-->
+<div class="all-footer-area">
+    <div class="all-index-footer-icp">
+        <span class="logo-text">© 2016 Worktile</span>
+        <span class="icp-center">京ICP备13017353号-3</span>
+        <span>京公网安备11010802012357号</span>
+        <span>
+            <a rel="nofollow" href="/mgt/index" target="_blank" class="trust-icon">
+                <img src="/images/mgt/trust-icon.png" alt="">
+            </a>
+            <a rel="nofollow" class="safe-icon" href="/mgt/index" target="_blank">
+                <img src="/images/mgt/safe-icon.gif" alt="">
+            </a>
+        </span>
+    </div>
+
+</div>
+
+</div>
+
+</div></div>
+<script type="text/javascript">
+  window.wt = {};
+  wt.appConfig = {
+    version : '4.5.12',
+    feed_host: 'https://feed.worktile.com',
+    wtconnect : {
+       weixin: 'https://weixin.worktile.com',
+    },
+    box      : {
+        wtprj_url    : 'https://wt-prj.oss.aliyuncs.com/',
+        base_url     : 'https://box.worktile.com/',
+        box_url_regex: '^https://box.worktile.com/(.*)$'
+    }
+  };
+</script>
+
+
+<script src="/javascripts/mgt/worktile.outer.min.js"></script>
+
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+  _atrk_opts = { atrk_acct:"I+xBi1a4ZP00O9", domain:"worktile.com",dynamic: true};
+  (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript>&lt;img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=I+xBi1a4ZP00O9" style="display:none" height="1" width="1" alt="" /&gt;</noscript>
+<!-- End Alexa Certify Javascript -->
+
+
+
+<!-- ngIf: vm.showAppPromotionBar -->
+
+
+
+</body></html>

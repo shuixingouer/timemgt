@@ -1,0 +1,134 @@
+{"code":200,
+"data":{
+  "title":"逗逼程序员的爆笑趣事",
+  "id":"20161026",
+  "author":"宅女",
+  "time":"2016-10-26",
+  "type":"5",
+  "body":"",
+  "article":{
+    "articleClassName":"items_5",
+    "start":[
+      {
+        "desc":"今天推送<br/>几个逗逼程序员的爆笑趣事~",
+        "imagesUrl":"1.jpg"
+      },
+      {
+        "desc":"</a>",
+        "imagesUrl":""
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"1",
+        "title":"离职程序员之项目交接",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"2.gif",
+        "imagesDesc":""
+      },
+      {
+        "num":"2",
+        "title":"在找 bug ……",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"3.gif",
+        "imagesDesc":""
+      },
+      {
+        "num":"3",
+        "title":"找到 bug 了",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"4.gif",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"4",
+        "title":"刚修复了 bug，我给老板演示的时候",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"5.gif",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"5",
+        "title":"测试工程师责怪程序员低级 bug 的时候",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"6.gif",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"6",
+        "title":"演示过程中，我的bug没有被发现",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"7.gif",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"7",
+        "title":"新手程序员第一次打出 Hello World 的时候",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"8.gif",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"8",
+        "title":"上线前两天，客户突然要更改需求",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"9.gif",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"9",
+        "title":"无需求文档，就要我去开发",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"10.gif",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"10",
+        "title":"某次喝醉，老王搬出5个手指头问我，这是几，我数了数答说“4”。他说你醉了，我嘴硬说没有，再丢出3个手指头问我是几，我说是2。他说你真醉了，你好好数数，于是我就指着第一根指头，0,1,2… 老王突然老泪纵横,你果然是个杯具的程序员…",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"11.jpg",
+        "imagesDesc":""
+      },
+      {
+        "num":"11",
+        "title":"计算机系的男同学追班里一女同学，结果此女总是躲躲闪闪。 男的看没戏，就另找了一个去追，结果这女的不满意了，质问这男的为啥抛弃她。 男的问：“请教一个电脑问题，如果你点击一个程序，总是提示‘没有响应’，怎么办？” 女的说：“马上结束任务。” 男的：“对，我也是这样想的。”",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"12.jpg",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"12",
+        "title":"某程序员退休后决定练习书法，于是重金购买文房四宝。一日，饭后突生雅兴，一番研墨拟纸，并点上上好檀香。定神片刻，泼墨挥毫，郑重地写下一行字：hello world！",
+        "desc":"<p class='ta_c'>▼</p>",
+        "code":"",
+        "imagesUrl":"13.jpg",
+        "imagesDesc":"",
+        "ends":""
+      }
+    ],
+    "end":[
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

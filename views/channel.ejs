@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/weui.css'/>
+    <link rel='stylesheet' href='/stylesheets/example.css'/>
+    <link rel="stylesheet/less" href="/less/index.less">
+    <script src="/javascripts/less.min.js"></script>
+  </head>
+  <body>
+    <div class="page input js_show">
+      <div class="weui-panel">
+        <div class="weui-navbar" style="position:static">
+          <div class="weui-navbar__item weui-bar__item_on">
+            Html/Css
+          </div>
+          <!--<div class="weui-navbar__item">-->
+          <!--阅读最多-->
+          <!--</div>-->
+          <!--<div class="weui-navbar__item">-->
+          <!--点赞最多-->
+          <!--</div>-->
+          <!--<div class="weui-navbar__item">-->
+          <!--评论最多-->
+          <!--</div>-->
+        </div>
+        <% for(var i = 0; i < data.length; i++) { %>
+        <% if(data[i].type == hrefType) { %>
+        <a href="/detail?<%= data[i].id %>" class="weui-media-box weui-media-box_appmsg">
+          <div class="weui-media-box__hd">
+            <img class="weui-media-box__thumb" src="/images/listImages/<%= data[i].id %>.jpg" alt="">
+          </div>
+          <div class="weui-media-box__bd">
+            <h4 class="weui-media-box__title"><%= data[i].title %></h4>
+            <p class="weui-media-box__desc"><%= data[i].desc %></p>
+            <p class="weui-media-box__time"><%= data[i].time %></p>
+          </div>
+        </a>
+        <% } %>
+        <% } %>
+      </div>
+      <div class="weui-loadmore">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载</span>
+      </div>
+      <div class="weui-loadmore weui-loadmore_line">
+        <span class="weui-loadmore__tips">暂无数据</span>
+      </div>
+    </div>
+    <script src="/javascripts/zepto.min.js"></script>
+  </body>
+</html>

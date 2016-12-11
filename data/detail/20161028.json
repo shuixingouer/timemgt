@@ -1,0 +1,73 @@
+{"code":200,
+"data":{
+  "title":"CSS选择器（六） - 前端基础",
+  "id":"20161028",
+  "author":"宅女",
+  "time":"2016-10-28",
+  "desc":"小伙伴们好[微笑脸]~没错~我又来了~",
+  "type":"0",
+  "body":"",
+  "article":{
+    "articleClassName":"items_2",
+    "start":[
+      {
+        "desc":"小伙伴们好~<br/>CSS选择器第六弹~",
+        "imagesUrl":"1.jpg"
+      },
+      {
+        "desc":"CSS选择器回顾<br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161010'>CSS选择器（一）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161017'>CSS选择器（二）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161019'>CSS选择器（三）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161022'>CSS选择器（四）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161025'>CSS选择器（五）</a>",
+        "imagesUrl":""
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"33",
+        "title":":root",
+        "desc":"<strong>含义：</strong>匹配文档根元素。<br/>在 HTML 中，根元素始终是 html 元素<br/><strong>例子：</strong>",
+        "code":":root<br/>{<br/>&nbsp;&nbsp;background:#ff0000;<br/>}",
+        "imagesUrl":"5.png",
+        "imagesDesc":"&Delta;&nbsp;给HTML文档设置样式。",
+        "ends":"<strong>兼容浏览器：</strong>IE9+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"34",
+        "title":"A:empty",
+        "desc":"<strong>含义：</strong>匹配没有子元素（包括文本节点）的每个元素。<br/><br/><strong>例子：</strong>",
+        "code":"p:empty<br/>{<br/>background:#ff0000;<br/>}",
+        "imagesUrl":"6.png",
+        "imagesDesc":"&Delta;&nbsp;给空的 p 元素设置样式",
+        "ends":"<strong>兼容浏览器：</strong>IE9+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"35",
+        "title":"A:target",
+        "desc":"<strong>含义：</strong>用于选取当前活动的目标元素（URL 带有后面跟有锚名称 #，指向文档内某个具体的元素。这个被链接的元素就是目标元素(target element)）。<br/><strong>例子：</strong>",
+        "code":":target<br/>{<br/>&nbsp;&nbsp;border: 2px solid #D4D4D4;<br/>&nbsp;&nbsp;background-color: #e5eecc;<br/>}",
+        "imagesUrl":"7.png",
+        "imagesDesc":"&Delta;&nbsp;突出显示活动的 HTML 锚。",
+        "ends":"<strong>兼容浏览器：</strong>IE7+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"36",
+        "title":"A:lang(language)",
+        "desc":"<strong>含义：</strong>用于选取带有以指定值开头的 lang 属性的元素。<br/><strong>注释：</strong>该值必须是整个单词，即可是单独的，比如 lang='en'，也可后跟连接符，比如 lang='en-us'。<br/><strong>例子：</strong>",
+        "code":"p:lang(en)<br/>{<br/>&nbsp;&nbsp;background:yellow;<br/>}",
+        "imagesUrl":"8.png",
+        "imagesDesc":"&Delta;&nbsp;给带有以'en'开头的 lang 属性值的每个 <p> 元素设置样式。",
+        "ends":"<strong>兼容浏览器：</strong>IE7+、Firefox、Chrome、Safari。"
+      }
+    ],
+    "end":[
+      {
+        "desc":"好好学习天天向上~",
+        "imagesUrl":"10.jpg"
+      },
+      {
+        "desc":"<br/><br/>"
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

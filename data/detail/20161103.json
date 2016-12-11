@@ -1,0 +1,259 @@
+{"code":200,
+"data":{
+  "title":"在本地部署Parse Server",
+  "id":"20161103",
+  "author":"宅女",
+  "time":"2016-11-03",
+  "type":"2",
+  "body":"",
+  "article":{
+    "articleClassName":"items_2",
+    "start":[
+      {
+        "desc":"天知道我经历了什么~",
+        "imagesUrl":"1.gif"
+      },
+      {
+        "desc":"工作需要~<br/>第一次接触~<br/>记录~",
+        "imagesUrl":""
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"一",
+        "title":"准备工作",
+        "desc":"安装git和nodejs。<br/><br/>"
+      },
+      {
+        "num":"二",
+        "title":"部署MongoDB",
+        "desc":"去<a href='https://www.mongodb.com/'>官网</a>下载一个社区版的就行。<br/>安装后，打开cmd，这里我用的是如下图的Git CMD，因为用“win+R”键，我这里不好用",
+        "code":"",
+        "imagesUrl":"3.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"cd到目录C:\\Program Files\\MongoDB\\Server\\3.2\bin，然后执行以下命令启动MongoDB server。–dbpath就是你的数据库路径，设置为你想放置的路径即可，别忘了先创建这个db的路径。",
+        "code":"C:\\Program Files\\MongoDB\\Server\\3.2\\bin>mongod.exe --dbpath F:\\MongoDB\\db",
+        "imagesUrl":"4.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"",
+        "code":"",
+        "imagesUrl":"5.png",
+        "imagesDesc":"&Delta;&nbsp;MongoDB部署完毕！<br/><br/>"
+      },
+      {
+        "num":"三",
+        "title":"安装Mongo客户端",
+        "desc":"1.去<a href='https://robomongo.org/'>官网</a>下载Robomongo。<br/>一路安装",
+        "code":"",
+        "imagesUrl":"20.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>2.创建数据库",
+        "code":"",
+        "imagesUrl":"21.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>3.弹出Connections，点击“Create”创建新的数据库",
+        "code":"",
+        "imagesUrl":"22.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>4.如图所示，输入Name和Address，保存完毕",
+        "code":"",
+        "imagesUrl":"23.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>5.数据库创建完成",
+        "code":"",
+        "imagesUrl":"24.png",
+        "imagesDesc":"<br/><br/>",
+        "ends":""
+      },
+      {
+        "num":"四",
+        "title":"部署Parse Server",
+        "desc":"1.去github上下载最新的<a href='https://github.com/ParsePlatform/parse-server'>Parse Server</a>。",
+        "code":"",
+        "imagesUrl":"6.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>2.解压缩后得到一个parse-server-master的目录，打开cmd，cd到这个目录，执行以下命令。<br/>",
+        "code":"F:\\parse-server-master>npm install -g parse-server mongodb-runner",
+        "imagesUrl":"7.png",
+        "imagesDesc":"&Delta;&nbsp;命令执行期间如果出现找不到python的错误，不用理会。",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>3.在cmd里继续执行命令来启动Parse Server。appId和masterKey你可以随便给，最好复杂点。",
+        "code":"parse-server --appId 123456789123 --masterKey 123",
+        "imagesUrl":"8.png",
+        "imagesDesc":"&Delta;&nbsp;图片中的appId应该为123456789123",
+        "ends":"<br/><br/>4.Parse Server部署完毕！服务器地址为：http://localhost:1337/parse。<br/><br/>"
+      },
+      {
+        "num":"五",
+        "title":"部署parse-server-example",
+        "desc":"1.从github上下载<a href='https://github.com/ParsePlatform/parse-server-example'>parse-server-example</a>。",
+        "code":"",
+        "imagesUrl":"18.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "desc":"<br/><br/>2.解压缩后得到一个parse-server-example-master的目录，打开cmd"
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>3.安装npm，cd命令进入到F:\\parse-server-example-master目录，输入命令",
+        "code":"npm install",
+        "imagesUrl":"14.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>4.安装完毕，可以看到parse-server-example-master文件夹多了个node_modules文件夹",
+        "code":"",
+        "imagesUrl":"15.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>5.打开parse-server-example-master文件夹下的index.js，把下面的代码覆盖到index.js里面，保存",
+        "code":"var express = require('express');<br/>var ParseServer = require('parse-server').ParseServer;<br/>var path = require('path');<br/>var api = new ParseServer({<br/>&nbsp;databaseURI: 'mongodb://localhost:27017/parse',<br/>&nbsp;appId: '123456789123',<br/>&nbsp;masterKey: '123', //Add your master key here. Keep it secret!<br/>&nbsp;serverURL: 'http://localhost:1337/parse',<br/>&nbsp;liveQuery: {<br/>&nbsp;&nbsp;classNames: [\"Posts\", \"Comments\"]<br/>&nbsp;}<br/>});<br/>var app = express();<br/>app.use('/public', express.static(path.join(__dirname, '/public')));<br/>var mountPath = process.env.PARSE_MOUNT || '/parse';<br/>app.use(mountPath, api);<br/>app.get('/', function(req, res) {<br/>&nbsp;res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');<br/>});<br/>app.get('/test', function(req, res) {<br/>&nbsp;res.sendFile(path.join(__dirname, '/public/test.html'));<br/>});<br/>var port = 1337;<br/>var httpServer = require('http').createServer(app);<br/>httpServer.listen(port, function() {<br/>&nbsp;console.log('parse-server-example running on port ' + port + '.');<br/>});<br/>ParseServer.createLiveQueryServer(httpServer);",
+        "imagesUrl":"25.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>6.运行服务器",
+        "code":"npm start",
+        "imagesUrl":"17.png",
+        "imagesDesc":"<br/><br/>",
+        "ends":""
+      },
+      {
+        "num":"六",
+        "title":"部署Parse Dashboard",
+        "desc":"1.从github上下载<a href='https://github.com/ParsePlatform/parse-server'>Parse Dashboard</a>。",
+        "code":"",
+        "imagesUrl":"9.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>2.解压后得到parse-dashboard-master目录，打开cmd，cd到这个目录，执行以下命令。",
+        "code":"F:\\parse-dashboard-master>npm install -g parse-dashboard",
+        "imagesUrl":"10.png",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>3.继续执行以下命令。这里的appId和masterKey就是你前面设置的值。",
+        "code":"parse-dashboard --appId 123456789123 --masterKey 123 --serverURL \"http://localhost:1337/parse\" --appName YOUR_DB_NAME",
+        "imagesUrl":"11.png",
+        "imagesDesc":"&Delta;&nbsp;（图片中的appId应该为123456789123）Parse Dashboard部署完毕！服务器地址为：http://localhost:4040。",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<br/><br/>4.此时你在浏览器里输入这个地址就能看到新版的Parse Dashboard了。",
+        "code":"",
+        "imagesUrl":"12.png",
+        "imagesDesc":"<br/><br/>",
+        "ends":""
+      },
+      {
+        "num":"七",
+        "title":"Parse Dashboard配置文件",
+        "desc":"配置文件里允许配置多个app和用户，具体使用如下。<br/><br/>1.打开配置文件E:\\parse-dashboard-master\\Parse-Dashboard\\parse-dashboard-config.json，没有的话你在E:\\parse-dashboard-master路径下新建一个parse-dashboard-config.json配置文件。<br/><br/>2.编辑Json格式的配置文件并保存，内容如下。",
+        "code":"{<br/>&nbsp;&nbsp;\"apps\": [<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"serverURL\": \"http://localhost:1337/parse\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"appId\": \"123\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"masterKey\": \"123\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"appName\": \"My Parse Server App\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"serverURL\": \"http://api.parse.com/1\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"appId\": \"myAppId\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"masterKey\": \"myMasterKey\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"appName\": \"My Parse Server App\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"users\": [<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"user\":\"admin\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"pass\":\"admin\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"user\":\"myUserName\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"pass\":\"myPassword\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;]<br/>&nbsp;&nbsp;}<br/>}",
+        "imagesUrl":"13.png",
+        "imagesDesc":"<br/><br/>",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"3.开打cmd，cd到配置文件所在目录，执行以下命令。",
+        "code":"E:\\parse-dashboard-master\\Parse-Dashboard>parse-dashboard --config parse-dashboard-config.json --allowInsecureHTTP",
+        "imagesUrl":"14.png",
+        "imagesDesc":"&Delta;&nbsp;这样就能用admin来登入Parse Dashboard，并管理多个app了！",
+        "ends":"<br/><br/>"
+      },
+      {
+        "num":"八",
+        "title":"用HTTP访问Parse Dashboard",
+        "desc":"如果你是在远程服务器上部署了Parse，那么你在访问Parse Dashboard的时候会发现出现这个问题。",
+        "code":"Parse Dashboard can only be remotely accessed via HTTPS",
+        "imagesUrl":"",
+        "imagesDesc":"",
+        "ends":""
+      },
+      {
+        "num":"",
+        "title":"",
+        "desc":"<strong>解决方案：</strong>在启动命令行后面加上–allowInsecureHTTP",
+        "code":"parse-dashboard --appId 123 --masterKey 123 --serverURL \"http://localhost:1337/parse\" --appName YOUR_DB_NAME --allowInsecureHTTP",
+        "imagesUrl":"",
+        "imagesDesc":"",
+        "ends":""
+      }
+    ],
+    "end":[
+      {
+        "desc":"捅咕好几天了<br/>中间差点就要放弃了~",
+        "imagesUrl":"20.gif"
+      },
+      {
+        "desc":"<br/><br/>"
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

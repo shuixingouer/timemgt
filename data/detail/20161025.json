@@ -1,0 +1,86 @@
+{"code":200,
+"data":{
+  "title":"CSS选择器（五） - 前端基础",
+  "id":"20161025",
+  "author":"宅女",
+  "time":"2016-10-25",
+  "type":"0",
+  "body":"",
+  "article":{
+    "articleClassName":"items_2",
+    "start":[
+      {
+        "desc":"CSS选择器第五弹来啦~<br/>爱学习的小伙伴们久等啦~",
+        "imagesUrl":"1.jpg"
+      },
+      {
+        "desc":"CSS选择器回顾<br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161010'>CSS选择器（一）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161017'>CSS选择器（二）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161019'>CSS选择器（三）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161022'>CSS选择器（四）</a>",
+        "imagesUrl":""
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"28",
+        "title":"A:after和A:before",
+        "desc":"<strong>含义：</strong>这两个伪类与content结合用于在元素的前面或者后面追加内容。<br/><strong>例子：</strong>",
+        "code":"h1:after<br/>{<br/>&nbsp;&nbsp;content:url(../image/20161017/1.jpg);<br/>}",
+        "imagesUrl":"10.png",
+        "imagesDesc":"&Delta;&nbsp;在h1标题的后面显示一张图片。"
+      },
+      {
+        "desc":"我们也经常用它来实现清除浮动，写法如下",
+        "code":".clearfix:after{<br/>&nbsp;&nbsp;content:'';<br/>&nbsp;&nbsp;display:block;<br/>&nbsp;&nbsp;clear:both;<br/>&nbsp;&nbsp;visibility: hidden;<br/>&nbsp;&nbsp;font-size:0;<br/>&nbsp;&nbsp;height:0;<br/>}<br/>&nbsp;&nbsp;.clearfix {<br/>&nbsp;&nbsp;*display:inline-block;<br/>&nbsp;&nbsp;_height:1%;<br/>}",
+        "ends":"<strong>兼容浏览器：</strong>IE7+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"29",
+        "title":"A:first-letter",
+        "desc":"<strong>含义：</strong>选取指定选择器的首字母。<br/><strong>注释：</strong>以下属性可与 :first-letter 使用：<br/>字体属性<br/>颜色属性<br/>背景属性<br/>外边距属性<br/>内边距属性<br/>边框属性<br/>text-decoration<br/>vertical-align（只有在 float 为 'none' 时）<br/>text-transform<br/>line-height<br/>float<br/>clear<br/><strong>例子：</strong>",
+        "code":"p:first-letter<br/>{<br/>&nbsp;&nbsp;font-size:200%;<br/>color:#8A2BE2;<br/>}",
+        "imagesUrl":"14.png",
+        "imagesDesc":"&Delta;&nbsp;给每个 p 元素的首字母设置样式",
+        "ends":"<strong>兼容浏览器：</strong>IE7+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"30",
+        "title":"A:first-line",
+        "desc":"<strong>含义：</strong>选取指定选择器的首行。<br/><strong>注释：</strong>以下属性可与 :first-line 使用：<br/>字体属性<br/>颜色属性<br/>背景属性<br/>word-spacing<br/>letter-spacing<br/>text-decoration<br/>vertical-align<br/>text-transform<br/>line-height<br/>clear<br/><strong>例子：</strong>",
+        "code":"p:first-line<br/>{<br/>&nbsp;&nbsp;background-color:yellow;<br/>}",
+        "imagesUrl":"15.png",
+        "imagesDesc":"&Delta;&nbsp;给每个 p 元素的首行设置样式。",
+        "ends":"<strong>兼容浏览器：</strong>IE7+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"31",
+        "title":"A:not(selector)",
+        "desc":"<strong>含义：</strong>否定伪类选择器：在匹配元素时排除某些元素。<br/><strong>例子：</strong>",
+        "code":":not(p)<br/>{<br/>&nbsp;&nbsp;color: #ff0000;<br/>}",
+        "imagesUrl":"11.png",
+        "imagesDesc":"&Delta;&nbsp;给设置非p元素的所有元素设置样式。",
+        "ends":"<strong>兼容浏览器：</strong>IE9+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"32",
+        "title":"::selection",
+        "desc":"<strong>含义：</strong>被用户选取的部分。<br/>只能向 ::selection 选择器应用少量 CSS 属性：color、background、cursor 以及 outline<br/><strong>例子：</strong>",
+        "code":":not(p)<br/>{<br/>&nbsp;&nbsp;color: #ff0000;<br/>}",
+        "imagesUrl":"16.png",
+        "imagesDesc":"&Delta;&nbsp;给被选中的文本设置样式。",
+        "ends":"<strong>兼容浏览器：</strong>IE9+、Chrome、Safari，Firefox 支持替代的 ::-moz-selection。"
+      }
+    ],
+    "end":[
+      {
+        "desc":"学完感觉自己萌萌哒~",
+        "imagesUrl":"19.jpg"
+      },
+      {
+        "desc":"<br/><br/>",
+        "imagesUrl":""
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

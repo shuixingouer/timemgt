@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/weui.css'/>
+    <link rel='stylesheet' href='/stylesheets/example.css'/>
+    <link rel="stylesheet/less" href="/less/index.less">
+    <script src="/javascripts/less.min.js"></script>
+  </head>
+  <body>
+    <div class="page input js_show">
+      <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+          <div class="weui-tab__panel">
+            <div class="tab_panel_1">
+              <!--搜索布局开始-->
+              <!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
+              <div class="weui-search-bar" id="searchBar">
+                <form class="weui-search-bar__form">
+                  <div class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                  </div>
+                  <label class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span>搜索</span>
+                  </label>
+                </form>
+                <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+              </div>
+              <div class="weui-cells searchbar-result" id="searchResult" style="display:none;">
+                <div class="weui-cell weui-cell_access">
+                  <div class="weui-cell__bd weui-cell_primary">
+                    <p>实时搜索文本</p>
+                  </div>
+                </div>
+                <div class="weui-cell weui-cell_access">
+                  <div class="weui-cell__bd weui-cell_primary">
+                    <p>实时搜索文本</p>
+                  </div>
+                </div>
+                <div class="weui-cell weui-cell_access">
+                  <div class="weui-cell__bd weui-cell_primary">
+                    <p>实时搜索文本</p>
+                  </div>
+                </div>
+                <div class="weui-cell weui-cell_access">
+                  <div class="weui-cell__bd weui-cell_primary">
+                    <p>实时搜索文本</p>
+                  </div>
+                </div>
+              </div>
+              <!--搜索布局结束-->
+              <div class="weui-panel">
+                    <!--九宫格布局开始-->
+                    <div class="weui-grids">
+                      <a href="/channel?type=0" class="weui-grid">
+                        <div class="weui-grid__icon">
+                          <img src="/images/icon_tabbar.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">Html/Css</p>
+                      </a>
+                      <a href="/channel?type=1" class="weui-grid">
+                        <div class="weui-grid__icon">
+                          <img src="/images/icon_tabbar.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">JS/JQ</p>
+                      </a>
+                      <a href="/channel?type=2" class="weui-grid">
+                        <div class="weui-grid__icon">
+                          <img src="/images/icon_tabbar.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">Node</p>
+                      </a>
+                      <a href="/channel?type=3" class="weui-grid">
+                        <div class="weui-grid__icon">
+                          <img src="/images/icon_tabbar.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">前端工具</p>
+                      </a>
+                      <a href="/channel?type=4" class="weui-grid">
+                        <div class="weui-grid__icon">
+                          <img src="/images/icon_tabbar.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">前端框架</p>
+                      </a>
+                      <a href="/channel?type=5" class="weui-grid">
+                        <div class="weui-grid__icon">
+                          <img src="/images/icon_tabbar.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">前端UI</p>
+                      </a>
+                      <a href="/channel?type=6" class="weui-grid">
+                        <div class="weui-grid__icon">
+                          <img src="/images/icon_tabbar.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">趣闻</p>
+                      </a>
+                      <a href="/channel?type=7" class="weui-grid">
+                        <div class="weui-grid__icon">
+                          <img src="/images/icon_tabbar.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">鸡汤</p>
+                      </a>
+                      <a href="/channel?type=8" class="weui-grid">
+                        <div class="weui-grid__icon">
+                          <img src="/images/icon_tabbar.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">日历</p>
+                      </a>
+                    </div>
+                    <!--九宫格布局结束-->
+              </div>
+              <div class="weui-panel">
+                  <div class="weui-navbar" style="position:static">
+                    <div class="weui-navbar__item weui-bar__item_on">
+                      综合排序
+                    </div>
+                    <!--<div class="weui-navbar__item">-->
+                      <!--阅读最多-->
+                    <!--</div>-->
+                    <!--<div class="weui-navbar__item">-->
+                      <!--点赞最多-->
+                    <!--</div>-->
+                    <!--<div class="weui-navbar__item">-->
+                      <!--评论最多-->
+                    <!--</div>-->
+                  </div>
+                  <% for(var i = 0; i < data.length; i++) { %>
+                  <a href="/detail?<%= data[i].id %>" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                      <img class="weui-media-box__thumb" src="/images/listImages/<%= data[i].id %>.jpg" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                      <h4 class="weui-media-box__title"><%= data[i].title %></h4>
+                      <p class="weui-media-box__desc"><%= data[i].desc %></p>
+                      <p class="weui-media-box__time"><%= data[i].time %></p>
+                    </div>
+                  </a>
+                  <% } %>
+              </div>
+              <div class="weui-loadmore">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在加载</span>
+              </div>
+              <div class="weui-loadmore weui-loadmore_line">
+                <span class="weui-loadmore__tips">暂无数据</span>
+              </div>
+            </div>
+            <div class="tab_panel_2">
+              <div class="weui-panel">
+              <div class="weui-form-preview">
+                <div class="weui-form-preview__hd">
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">名称</label>
+                    <em class="weui-form-preview__value">学习express</em>
+                  </div>
+                </div>
+                <div class="weui-form-preview__bd">
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">开始时间</label>
+                    <span class="weui-form-preview__value">2016-11-22</span>
+                  </div>
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">结束时间</label>
+                    <span class="weui-form-preview__value">2016-11-30</span>
+                  </div>
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">标题标题</label>
+                    <span class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
+                  </div>
+                </div>
+                <div class="weui-form-preview__ft">
+                  <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">修改</a>
+                  <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">删除</a>
+                  <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">完成</a>
+                </div>
+              </div>
+              </div>
+              <div class="weui-panel">
+              <div class="weui-form-preview">
+                <div class="weui-form-preview__hd">
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">名称</label>
+                    <em class="weui-form-preview__value">学习Koa</em>
+                  </div>
+                </div>
+                <div class="weui-form-preview__bd">
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">开始时间</label>
+                    <span class="weui-form-preview__value">2016-11-22</span>
+                  </div>
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">结束时间</label>
+                    <span class="weui-form-preview__value">2016-11-30</span>
+                  </div>
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">标题标题</label>
+                    <span class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
+                  </div>
+                </div>
+                <div class="weui-form-preview__ft">
+                  <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">修改</a>
+                  <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">删除</a>
+                  <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">完成</a>
+                </div>
+              </div>
+              </div>
+              <div class="weui-panel">
+              <div class="weui-form-preview">
+                <div class="weui-form-preview__hd">
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">名称</label>
+                    <em class="weui-form-preview__value">学习Ajax</em>
+                  </div>
+                </div>
+                <div class="weui-form-preview__bd">
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">开始时间</label>
+                    <span class="weui-form-preview__value">2016-11-22</span>
+                  </div>
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">结束时间</label>
+                    <span class="weui-form-preview__value">2016-11-30</span>
+                  </div>
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">标题标题</label>
+                    <span class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
+                  </div>
+                </div>
+                <div class="weui-form-preview__ft">
+                  <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">修改</a>
+                  <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">删除</a>
+                  <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">完成</a>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="tab_panel_3">
+              <div class="weui-panel">
+                <div class="weui-panel__hd">登录/注册</div>
+                <div class="weui-panel__bd">
+                  <!--九宫格布局开始-->
+                  <div class="weui-grids">
+                    <a href="javascript:;" class="weui-grid">
+                      <div class="weui-grid__icon">
+                        <img src="/images/icon_tabbar.png" alt="">
+                      </div>
+                      <p class="weui-grid__label">Grid</p>
+                    </a>
+                    <a href="javascript:;" class="weui-grid">
+                      <div class="weui-grid__icon">
+                        <img src="/images/icon_tabbar.png" alt="">
+                      </div>
+                      <p class="weui-grid__label">Grid</p>
+                    </a>
+                    <a href="javascript:;" class="weui-grid">
+                      <div class="weui-grid__icon">
+                        <img src="/images/icon_tabbar.png" alt="">
+                      </div>
+                      <p class="weui-grid__label">Grid</p>
+                    </a>
+                  </div>
+                  <!--九宫格布局结束-->
+                </div>
+              </div>
+              <div class="weui-panel">
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                  <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                  <div class="weui-cell__bd">
+                    <p>我的好友</p>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                  <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                  <div class="weui-cell__bd">
+                    <span style="vertical-align: middle">我的收藏</span>
+                    <span class="weui-badge" style="margin-left: 5px;">8</span>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+                </a>
+              </div>
+              <div class="weui-panel">
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                  <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                  <div class="weui-cell__bd">
+                    <span style="vertical-align: middle">帮助与反馈</span>
+                    <span class="weui-badge" style="margin-left: 5px;">New</span>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                  <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                  <div class="weui-cell__bd">
+                    <p>在线客服</p>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="weui-tabbar">
+            <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="/images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+                    </span>
+              <p class="weui-tabbar__label">首页</p>
+            </a>
+            <a href="javascript:;" class="weui-tabbar__item">
+              <img src="/images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+              <p class="weui-tabbar__label">计划</p>
+            </a>
+            <a href="javascript:;" class="weui-tabbar__item">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="/images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+                    </span>
+              <p class="weui-tabbar__label">我的</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/javascripts/zepto.min.js"></script>
+    <!--下面是搜索功能特效-->
+    <script type="text/javascript">
+      $(function(){
+        var $searchBar = $('#searchBar'),
+                $searchResult = $('#searchResult'),
+                $searchText = $('#searchText'),
+                $searchInput = $('#searchInput'),
+                $searchClear = $('#searchClear'),
+                $searchCancel = $('#searchCancel');
+
+        function hideSearchResult(){
+          $searchResult.hide();
+          $searchInput.val('');
+        }
+        function cancelSearch(){
+          hideSearchResult();
+          $searchBar.removeClass('weui-search-bar_focusing');
+          $searchText.show();
+        }
+
+        $searchText.on('click', function(){
+          $searchBar.addClass('weui-search-bar_focusing');
+          $searchInput.focus();
+        });
+        $searchInput
+                .on('blur', function () {
+                  if(!this.value.length) cancelSearch();
+                })
+                .on('input', function(){
+                  if(this.value.length) {
+                    $searchResult.show();
+                  } else {
+                    $searchResult.hide();
+                  }
+                })
+        ;
+        $searchClear.on('click', function(){
+          hideSearchResult();
+          $searchInput.focus();
+        });
+        $searchCancel.on('click', function(){
+          cancelSearch();
+          $searchInput.blur();
+        });
+      });
+    </script>
+    <!--下面是最下选项卡切换特效-->
+    <script type="text/javascript">
+      $(function(){
+        $('.weui-navbar__item').on('click', function () {
+          $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+      });
+    </script>
+    <!--下面是最下图标切换特效-->
+    <script type="text/javascript">
+      $(function(){
+        $(".tab_panel_1").fadeIn(200).addClass('slideIn');
+        $(".tab_panel_2").fadeOut(200).removeClass('slideIn');
+        $(".tab_panel_3").fadeOut(200).removeClass('slideIn');
+        $('.weui-tabbar__item').on('click', function () {
+          $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+          if ($(".weui-tabbar__item").index(this) == 0) {
+            $(".tab_panel_1").fadeIn(200).addClass('slideIn');
+            $(".tab_panel_2").fadeOut(200).removeClass('slideIn');
+            $(".tab_panel_3").fadeOut(200).removeClass('slideIn');
+          } else {
+            if ($(".weui-tabbar__item").index(this) == 1) {
+              $(".tab_panel_2").fadeIn(200).addClass('slideIn');
+              $(".tab_panel_1").fadeOut(200).removeClass('slideIn');
+              $(".tab_panel_3").fadeOut(200).removeClass('slideIn');
+            } else {
+              if ($(".weui-tabbar__item").index(this) == 2) {
+                $(".tab_panel_3").fadeIn(200).addClass('slideIn');
+                $(".tab_panel_1").fadeOut(200).removeClass('slideIn');
+                $(".tab_panel_2").fadeOut(200).removeClass('slideIn');
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+{"code":200,
+"data":{
+  "title":"CSS选择器（七） - 前端基础",
+  "id":"20161101",
+  "author":"宅女",
+  "desc":"这个真的是最后一弹了[微笑脸]~~~",
+  "time":"2016-11-01",
+  "type":"0",
+  "body":"",
+  "article":{
+    "articleClassName":"items_2",
+    "start":[
+      {
+        "desc":"这个真的是最后一弹了[微笑脸]~~~<br/>真的好多啊~",
+        "imagesUrl":"1.jpg"
+      },
+      {
+        "desc":"CSS选择器回顾<br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161010'>CSS选择器（一）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161017'>CSS选择器（二）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161019'>CSS选择器（三）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161022'>CSS选择器（四）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161025'>CSS选择器（五）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161028'>CSS选择器（六）</a>",
+        "imagesUrl":""
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"37",
+        "title":"A:focus",
+        "desc":"<strong>含义：</strong>用于选取获得焦点的元素。<br/><strong>提示：</strong>接收键盘事件或其他用户输入的元素都允许 :focus 选择器<br/><strong>例子：</strong>",
+        "code":":root<br/>{<br/>&nbsp;&nbsp;background:#ff0000;<br/>}",
+        "imagesUrl":"5.png",
+        "imagesDesc":"&Delta;&nbsp;给获得焦点的输入字段设置样式。",
+        "ends":"<strong>兼容浏览器：</strong>IE7+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"38",
+        "title":"A:checked",
+        "desc":"<strong>含义：</strong>用来匹配处于选定状态的界面元素。<br/><br/><strong>例子：</strong>",
+        "code":"input[type=radio]:checked<br/>{<br/>&nbsp;&nbsp;border: 1px solid black;<br/>}",
+        "imagesUrl":"6.png",
+        "imagesDesc":"&Delta;&nbsp;给处于选定状态的单选radio设置样式",
+        "ends":"<strong>兼容浏览器：</strong>Opera。"
+      },
+      {
+        "num":"39",
+        "title":"A:enabled",
+        "desc":"<strong>含义：</strong>匹配每个已启用的元素（大多用在表单元素上）<br/><strong>例子：</strong>",
+        "code":"input[type='text']:enabled<br/>{<br/>&nbsp;&nbsp;background:#ffff00;<br/>}",
+        "imagesUrl":"5.png",
+        "imagesDesc":"&Delta;&nbsp;给带有以'en'开头的 lang 属性值的每个 <p> 元素设置样式。",
+        "ends":"<strong>兼容浏览器：</strong>IE7+、Firefox、Chrome、Safari。"
+      },
+      {
+        "num":"40",
+        "title":"A:disabled",
+        "desc":"<strong>含义：</strong>匹配每个被禁用的元素（大多用在表单元素上）。<br/><strong>例子：</strong>",
+        "code":"input[type='text']:disabled<br/>{<br/>&nbsp;&nbsp;background:#dddddd;<br/>}",
+        "imagesUrl":"5.png",
+        "imagesDesc":"&Delta;&nbsp;给所有type='text'的被禁用的 input 元素设置样式。",
+        "ends":"<strong>兼容浏览器：</strong>IE9+、Firefox、Chrome、Safari。"
+      }
+    ],
+    "end":[
+      {
+        "desc":"晚安，送你们一个南瓜小王子",
+        "imagesUrl":"10.jpg"
+      },
+      {
+        "desc":"<br/><br/>"
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

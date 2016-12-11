@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/weui.css'/>
+    <link rel='stylesheet' href='/stylesheets/example.css'/>
+  </head>
+  <body>
+    <div class="page input js_show">
+      <div class="page__hd">
+        <h1 class="page__title">欢迎来到时间管理</h1>
+        <p class="page__desc">祝你玩得开心</p>
+      </div>
+      <div class="weui-cells__title">登录</div>
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">昵称</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="username" type="" pattern="[0-9]*" placeholder="请输入昵称">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">密码</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="password" type="" pattern="[0-9]*" placeholder="请输入密码">
+            </div>
+        </div>
+      </div>
+      <div class="weui-btn-area">
+        <a href="javascript:;" class="weui-btn weui-btn_primary" id="login0">登录</a>
+      </div>
+      <div class="weui-cells__tips">还没注册？<a href="/register">点击注册</a></div>
+    </div>
+    <script src="/javascripts/zepto.min.js"></script>
+    <script>
+        $("#login0").click(function(){
+            var username=$("#username").val();
+            var password=$("#password").val();
+            var data={"uname":username,"upwd":password};
+            $.ajax({
+                url:'/login',
+                type:'post',
+                data:data,
+                success:function(data,status){
+                    var obj = JSON.parse(data);
+                    if(obj.type=="1"){
+                        //alert(obj.type);
+                        location.href = 'home';
+                    }else{
+                        //alert(obj.type);
+                        location.href = 'login';
+                    }
+                },
+                error:function(data,status){
+                }
+            })
+        });
+        console.log(encodeURIComponent("http://www.timemgt.com.cn/qdzn/view/index.html"))
+    </script>
+  </body>
+</html>

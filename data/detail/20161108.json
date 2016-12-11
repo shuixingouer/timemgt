@@ -1,0 +1,110 @@
+{"code":200,
+"data":{
+  "title":"Webpack（三） - 前端工具",
+  "id":"20161108",
+  "author":"宅女",
+  "time":"2016-11-08",
+  "type":"7",
+  "body":"",
+  "article":{
+    "articleClassName":"items_3",
+    "start":[
+      {
+        "desc":"",
+        "imagesUrl":""
+      },
+      {
+        "desc":"上期回顾<br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161020'>Webpack（一）</a><br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161027'>Webpack（二）</a>",
+        "imagesUrl":""
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"九",
+        "title":"Loaders",
+        "desc":"Loaders是webpack中最让人激动人心的功能之一了。通过使用不同的loader，webpack通过调用外部的脚本或工具可以对各种各样的格式的文件进行处理，比如说分析JSON文件并把它转换为JavaScript文件，或者说把下一代的JS文件（ES6，ES7)转换为现代浏览器可以识别的JS文件。或者说对React的开发而言，合适的Loaders可以把React的JSX文件转换为JS文件。<br/><br/>Loaders需要单独安装并且需要在<strong>webpack.config.js</strong>下的<strong>modules</strong>关键字下进行配置，Loaders的配置选项包括以下几方面：<br/><br/><strong>test：</strong>一个匹配loaders所处理的文件的拓展名的正则表达式（必须）<br/><strong>loader：</strong>loader的名称（必须）<br/><strong>include/exclude：</strong>手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）；<br/><strong>query：</strong>为loaders提供额外的设置选项（可选）<br/><br/>继续上面的例子，我们把<strong>Greeter.js</strong>里的问候消息放在一个单独的JSON文件里,并通过合适的配置使<strong>Greeter.js</strong>可以读取该JSON文件的值，配置方法如下▼",
+        "code":"//安装可以装换JSON的loader<br/>npm install --save-dev json-loader",
+        "imagesUrl":"4.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"",
+        "code":"module.exports = {<br/>&nbsp;&nbsp;devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项<br/>&nbsp;&nbsp;entry:  __dirname + '/app/main.js',////已多次提及的唯一入口文件<br/>&nbsp;&nbsp;output: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;path: __dirname + '/public',//打包后的文件存放的地方<br/>&nbsp;&nbsp;&nbsp;&nbsp;filename: 'bundle.js'//打包后输出文件的文件名<br/>&nbsp;&nbsp;},module: {//在配置文件里添加JSON loader<br/>&nbsp;&nbsp;&nbsp;&nbsp;loaders: [<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test: /\\.json$/,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader: \"json\"<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;]<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;devServer: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;contentBase: './public',//本地服务器所加载的页面所在的目录<br/>&nbsp;&nbsp;&nbsp;&nbsp;colors: true,//终端中输出结果为彩色<br/>&nbsp;&nbsp;&nbsp;&nbsp;historyApiFallback: true,//不跳转<br/>&nbsp;&nbsp;&nbsp;&nbsp;inline: true//实时刷新<br/>&nbsp;&nbsp;}<br/>}",
+        "imagesUrl":"5.png",
+        "ends":""
+      },
+      {
+        "desc":"创建带有问候信息的JSON文件(命名为config.json)▼",
+        "code":"//config.json<br/>{<br/>&nbsp;&nbsp;\"greetText\": \"Hi there and greetings from JSON!\"<br/>}",
+        "imagesUrl":"6.png",
+        "ends":""
+      },
+      {
+        "desc":"更新后的Greeter.js▼",
+        "code":"var config = require('./config.json');<br/>module.exports = function() {<br/>&nbsp;&nbsp;var greet = document.createElement('div');<br/>&nbsp;&nbsp;greet.textContent = config.greetText;<br/>&nbsp;&nbsp;return greet;<br/>};",
+        "imagesUrl":"7.png",
+        "ends":"Loaders很好，不过有的Loaders使用起来比较复杂，比如说Babel。"
+      },
+      {
+        "num":"十",
+        "title":"Babel",
+        "desc":"Babel其实是一个编译JavaScript的平台，它的强大之处表现在可以通过编译帮你达到以下目的：<br/>下一代的JavaScript标准（ES6，ES7），这些标准目前并未被当前的浏览器完全的支持；<br/>使用基于JavaScript进行了拓展的语言，比如React的JSX"
+      },
+      {
+        "title":"Babel的安装与配置",
+        "desc":"Babel其实是几个模块化的包，其核心功能位于称为babel-core的npm包中，不过webpack把它们整合在一起使用，但是对于每一个你需要的功能或拓展，你都需要安装单独的包（用得最多的是解析Es6的babel-preset-es2015包和解析JSX的babel-preset-react包）。<br/>我们先来一次性安装这些依赖包",
+        "code":"// npm一次性安装多个依赖模块，模块之间用空格隔开<br/>npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react",
+        "imagesUrl":"8.png"
+      },
+      {
+        "desc":"在webpack中配置Babel的方法如下▼",
+        "code":"module.exports = {<br/>&nbsp;&nbsp;devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项<br/>&nbsp;&nbsp;entry:  __dirname + '/app/main.js',////已多次提及的唯一入口文件<br/>&nbsp;&nbsp;output: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;path: __dirname + '/public',//打包后的文件存放的地方<br/>&nbsp;&nbsp;&nbsp;&nbsp;filename: 'bundle.js'//打包后输出文件的文件名<br/>&nbsp;&nbsp;},module: {//在配置文件里添加JSON loader<br/>&nbsp;&nbsp;&nbsp;&nbsp;loaders: [<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test: /\\.json$/,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader: \"json\"<br/>&nbsp;&nbsp;},<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;test: /\\.js$/,<br/>&nbsp;&nbsp;exclude: /node_modules/,<br/>&nbsp;&nbsp;loader: 'babel',//在webpack的module部分的loaders里进行配置即可<br/>&nbsp;&nbsp;query: {<br/>&nbsp;&nbsp;presets: ['es2015','react']<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;]<br/>&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;devServer: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;contentBase: './public',//本地服务器所加载的页面所在的目录<br/>&nbsp;&nbsp;&nbsp;&nbsp;colors: true,//终端中输出结果为彩色<br/>&nbsp;&nbsp;&nbsp;&nbsp;historyApiFallback: true,//不跳转<br/>&nbsp;&nbsp;&nbsp;&nbsp;inline: true//实时刷新<br/>&nbsp;&nbsp;}<br/>}",
+        "imagesUrl":"9.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"现在你的webpack的配置已经允许你使用ES6以及JSX的语法了。继续用上面的例子进行测试，不过这次我们会使用React，记得先安装 React 和 React-DOM▼",
+        "code":"npm install --save react react-dom",
+        "imagesUrl":"10.png"
+      },
+      {
+        "desc":"使用ES6的语法，更新Greeter.js并返回一个React组件▼",
+        "code":"//Greeter,js<br/>import React, {Component} from 'react'<br/>import config from './config.json';<br/>class Greeter extends Component{<br/>&nbsp;&nbsp;render() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return (<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{config.greetText}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><br/>&nbsp;&nbsp;&nbsp;&nbsp;);<br/>&nbsp;&nbsp;}<br/>}<br/>export default Greeter",
+        "imagesUrl":"11.png",
+        "imagesDesc":""
+      },
+      {
+        "desc":"使用ES6的模块定义和渲染Greeter模块▼",
+        "code":"//Greeter,js<br/>import React, {Component} from 'react'<br/>import config from './config.json';<br/>class Greeter extends Component{<br/>&nbsp;&nbsp;render() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return (<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{config.greetText}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><br/>&nbsp;&nbsp;&nbsp;&nbsp;);<br/>&nbsp;&nbsp;}<br/>}<br/>export default Greeter",
+        "imagesUrl":"11.png",
+        "imagesDesc":""
+      },
+      {
+        "title":"Babel的配置选项",
+        "desc":"Babel其实可以完全在webpack.config.js中进行配置，但是考虑到babel具有非常多的配置选项，在单一的webpack.config.js文件中进行配置往往使得这个文件显得太复杂，因此一些开发者支持把babel的配置选项放在一个单独的名为 “.babelrc” 的配置文件中。我们现在的babel的配置并不算复杂，不过之后我们会再加一些东西，因此现在我们就提取出相关部分，分两个配置文件进行配置（webpack会自动调用.babelrc里的babel配置选项），如下：▼",
+        "code":"// webpack.config.js<br/>module.exports = {<br/>&nbsp;&nbsp;devtool: 'eval-source-map',<br/>&nbsp;&nbsp;entry:  __dirname + \"/app/main.js\",<br/>&nbsp;&nbsp;output: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;path: __dirname + \"/public\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;filename: \"bundle.js\"<br/>&nbsp;&nbsp;},<br/>&nbsp;&nbsp;module: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;loaders: [<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test: /\\.json$/,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader: \"json\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test: /\\.js$/,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exclude: /node_modules/,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader: 'babel'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;]<br/>&nbsp;&nbsp;},<br/>&nbsp;&nbsp;devServer: {...} // Omitted for brevity<br/>}",
+        "imagesUrl":"",
+        "imagesDesc":""
+      },
+      {
+        "desc":"",
+        "code":"//.babelrc<br/>{<br/>&nbsp;&nbsp;\"presets\": [\"react\", \"es2015\"]<br/>}",
+        "imagesUrl":"",
+        "imagesDesc":"到目前为止，我们已经知道了，对于模块，Webpack能提供非常强大的处理功能，那哪些是模块呢。下期揭晓~"
+      }
+    ],
+    "end":[
+      {
+        "desc":"拜拜~",
+        "imagesUrl":""
+      },
+      {
+        "desc":"<br/><br/>",
+        "imagesUrl":""
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}

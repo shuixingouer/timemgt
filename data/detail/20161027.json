@@ -1,0 +1,93 @@
+{"code":200,
+"data":{
+  "title":"Webpack（二） - 前端工具",
+  "id":"20161027",
+  "author":"宅女",
+  "time":"2016-10-27",
+  "type":"2",
+  "body":"",
+  "article":{
+    "articleClassName":"items_6",
+    "start":[
+      {
+        "desc":"上期我们学习了<br/>用Webpack简单打包一个文件<br/>这期我们就要放大招咯~",
+        "imagesUrl":"1.jpg"
+      },
+      {
+        "desc":"上期回顾<br/><a href='http://www.timemgt.com.cn/qdzn/view/detail.html?id=20161020'>Webpack（一）</a>",
+        "imagesUrl":""
+      }
+    ],
+    "articleBody":[
+      {
+        "num":"五",
+        "title":"通过配置文件来使用Webpack",
+        "desc":"Webpack拥有很多其它的比较高级的功能（比如说本文后面会介绍的loaders和plugins），这些功能其实都可以通过命令行模式实现，但是正如已经提到的，这样不太方便且容易出错的，一个更好的办法是定义一个配置文件，这个配置文件其实也是一个简单的JavaScript模块，可以把所有的与构建相关的信息放在里面。<br/><br/>还是继续上面的例子来说明如何写这个配置文件，在当前练习文件夹的根目录下新建一个名为webpack.config.js的文件，并在其中进行最最简单的配置，如下所示，它包含入口文件路径和存放打包后文件的地方的路径。▼",
+        "code":"module.exports = {<br/>&nbsp;&nbsp;entry:  __dirname + \"\/app\/main.js\",<br/>&nbsp;&nbsp;//已多次提及的唯一入口文件<br/>&nbsp;&nbsp;output: {<br/>&nbsp;&nbsp;path: __dirname + \"/public\",<br/>&nbsp;&nbsp;//打包后的文件存放的地方<br/>&nbsp;&nbsp;filename: \"bundle.js\"<br/>&nbsp;&nbsp;//打包后输出文件的文件名<br/>&nbsp;&nbsp;}<br/>}",
+        "imagesUrl":"2.png",
+        "imagesDesc":"<strong>注：</strong>“__dirname”是node.js中的一个全局变量，它指向当前执行脚本所在的目录。"
+      },
+      {
+        "desc":"如果需要打包文件，只需要在终端运行webpack(非全局安装需要额外指定webpack在node_modules的位置，使用node_modules/.bin/webpack)命令，这条命令会自动参考webpack.config.js文件中的配置选项打包项目。▼",
+        "imagesUrl":"3.png",
+        "ends":"&Delta;&nbsp;全局安装在终端运行webpack"
+      },
+      {
+        "imagesUrl":"4.png",
+        "ends":"&Delta;&nbsp;非全局安装在终端运行webpack"
+      },
+      {
+        "desc":"又学会了一种使用Webpack的方法，而且不用管那烦人的命令行参数了，有没有感觉很爽。有没有想过如果可以连webpack(非全局安装需使用node_modules/.bin/webpack)这条命令都可以不用，那种感觉会不会更爽~，继续看下文。"
+      },
+      {
+        "num":"六",
+        "title":"更快捷的执行打包任务",
+        "desc":"执行类似于node_modules/.bin/webpack这样的命令其实是比较烦人且容易出错的，不过值得庆幸的是npm可以引导任务执行，对其进行配置后可以使用简单的 npm start 命令来代替这些繁琐的命令。在package.json中对npm的脚本部分进行相关设置即可。▼",
+        "code":"{<br/>&nbsp;&nbsp;'name': 'qdzn-two',<br/>&nbsp;&nbsp;'version': '1.0.0',<br/>&nbsp;&nbsp;'description': '',<br/>&nbsp;&nbsp;'main': 'index.js',<br/>&nbsp;&nbsp;'scripts': {<br/>&nbsp;&nbsp;&nbsp;&nbsp;'start': 'webpack'//配置的地方，相当于把npm的start命令指向webpack命令<br/>&nbsp;&nbsp;},<br/>&nbsp;&nbsp;'author': '',<br/>&nbsp;&nbsp;'license': 'ISC',<br/>&nbsp;&nbsp;'devDependencies': {<br/>&nbsp;&nbsp;&nbsp;&nbsp;'webpack': '^1.13.2'<br/>&nbsp;&nbsp;}<br/>}",
+        "imagesUrl":"5.png",
+        "imagesDesc":"<strong>注：</strong>package.json中的脚本部分已经默认在命令前添加了node_modules/.bin路径，所以无论是全局还是局部安装的Webpack，你都不需要写前面那指明详细的路径了。"
+      },
+      {
+        "desc":"npm的start是一个特殊的脚本名称，它的特殊性表现在，在命令行中使用npm start就可以执行相关命令，如果对应的此脚本名称不是start，想要在命令行中运行时，需要这样用npm run {script name}如npm run build，以下是执行npm start后命令行的输出显示",
+        "code":"",
+        "imagesUrl":"6.png",
+        "imagesDesc":"",
+        "ends":"现在只需要使用npm start就可以打包文件了，有没有觉得webpack也不过如此嘛，不过不要太小瞧Webpack，其强大的功能包含在其一系列可供配置的选项中，我们一项项来看。"
+      },
+      {
+        "num":"七",
+        "title":"生成Source Maps（使调试更容易）",
+        "desc":"开发总是离不开调试，如果可以更加方便的调试当然就能提高开发效率，不过打包后的文件有时候你是不容易找到出错了的地方对应的源代码的位置的，Source Maps就是来帮我们解决这个问题的。<br/>通过简单的配置后，Webpack在打包时可以为我们生成的source maps，这为我们提供了一种对应编译文件和源文件的方法，使得编译后的代码可读性更高，也更容易调试。<br/><br/>在webpack的配置文件中配置source maps，需要配置devtool，它有以下四种不同的配置选项，各具优缺点，描述如下：<br/><br/><strong>source-map：</strong>在一个单独的文件中产生一个完整且功能完全的文件。这个文件具有最好的source map，但是它会减慢打包文件的构建速度；<br/><br/><strong>cheap-module-source-map：</strong>在一个单独的文件中生成一个不带列映射的map，不带列映射提高项目构建速度，但是也使得浏览器开发者工具只能对应到具体的行，不能对应到具体的列（符号），会对调试造成不便；<br/><br/><strong>eval-source-map：</strong>使用eval打包源文件模块，在同一个文件中生成干净的完整的source map。这个选项可以在不影响构建速度的前提下生成完整的sourcemap，但是对打包后输出的JS文件的执行具有性能和安全的隐患。不过在开发阶段这是一个非常好的选项，但是在生产阶段一定不要用这个选项；<br/><br/><strong>cheap-module-eval-source-map：</strong>这是在打包文件时最快的生成source map的方法，生成的Source Map 会和打包后的JavaScript文件同行显示，没有列映射，和eval-source-map选项具有相似的缺点；cheap-module-eval-source-map方法构建速度更快，但是不利于调试，推荐在大型项目考虑da时间成本是使用。<br/><br/>正如上表所述，上述选项由上到下打包速度越来越快，不过同时也具有越来越多的负面作用，较快的构建速度的后果就是对打包后的文件的的执行有一定影响。<br/><br/>在学习阶段以及在小到中性的项目上，eval-source-map是一个很好的选项，不过记得只在开发阶段使用它，继续上面的例子，进行如下配置。▼",
+        "code":"module.exports = {<br/>&nbsp;&nbsp;devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项<br/>&nbsp;&nbsp;entry:  __dirname + '/app/main.js',////已多次提及的唯一入口文件<br/>&nbsp;&nbsp;output: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;path: __dirname + '/public',//打包后的文件存放的地方<br/>&nbsp;&nbsp;&nbsp;&nbsp;filename: 'bundle.js'//打包后输出文件的文件名<br/>&nbsp;&nbsp;}<br/>}",
+        "imagesUrl":"7.png",
+        "imagesDesc":""
+      },
+      {
+        "num":"八",
+        "title":"使用webpack构建本地服务器",
+        "desc":"想不想让你的浏览器监测你都代码的修改，并自动刷新修改后的结果，其实Webpack提供一个可选的本地开发服务器，这个本地服务器基于node.js构建，可以实现你想要的这些功能，不过它是一个单独的组件，在webpack中进行配置之前需要单独安装它作为项目依赖。▼",
+        "code":"npm install --save-dev webpack-dev-server",
+        "imagesUrl":"",
+        "imagesDesc":"devserver作为webpack配置选项中的一项，具有以下配置选项。<br/><br/><strong>contentBase：</strong>默认webpack-dev-server会为根文件夹提供本地服务器，如果想为另外一个目录下的文件提供本地服务器，应该在这里设置其所在目录（本例设置到'public'目录）<br/><br/><strong>port：</strong>设置默认监听端口，如果省略，默认为'8080'<br/><br/><strong>inline：</strong>设置为true，当源文件改变时会自动刷新页面<br/><br/><strong>colors:</strong>设置为true，使终端输出的文件为彩色的<br/><br/><strong>historyApiFallback：</strong>在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html。<br/>继续把这些命令加到webpack的配置文件中，现在的配置文件如下所示。"
+      },
+      {
+        "code":"module.exports = {<br/>&nbsp;&nbsp;devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项<br/>&nbsp;&nbsp;entry:  __dirname + '/app/main.js',////已多次提及的唯一入口文件<br/>&nbsp;&nbsp;output: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;path: __dirname + '/public',//打包后的文件存放的地方<br/>&nbsp;&nbsp;&nbsp;&nbsp;filename: 'bundle.js'//打包后输出文件的文件名<br/>&nbsp;&nbsp;},<br/>&nbsp;&nbsp;devServer: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;contentBase: './public',//本地服务器所加载的页面所在的目录<br/>&nbsp;&nbsp;&nbsp;&nbsp;colors: true,//终端中输出结果为彩色<br/>&nbsp;&nbsp;&nbsp;&nbsp;historyApiFallback: true,//不跳转<br/>&nbsp;&nbsp;&nbsp;&nbsp;inline: true//实时刷新<br/>&nbsp;&nbsp;}<br/>}",
+        "imagesUrl":"8.png",
+        "imagesDesc":"<strong>注：</strong>package.json中的脚本部分已经默认在命令前添加了node_modules/.bin路径，所以无论是全局还是局部安装的Webpack，你都不需要写前面那指明详细的路径了。"
+      }
+    ],
+    "end":[
+      {
+        "desc":"还有下期噢~",
+        "imagesUrl":"19.jpg"
+      },
+      {
+        "desc":"<br/><br/>",
+        "imagesUrl":""
+      }
+    ]
+  }
+},
+"error":"Success",
+"status":"SUCESS"
+}
