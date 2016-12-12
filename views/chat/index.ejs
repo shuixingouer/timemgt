@@ -17,15 +17,14 @@
         <h3 class="panel-title">欢迎加入群聊</h3>
     </div>
     <div class="panel-body">
-        <ul id="messages"></ul>
-        <form action="">
-            <div class="input-group">
-                <input id="m" autocomplete="off" class="form-control">
-                <div class="input-group-btn">
-                    <button class="btn btn-default dropdown-toggle">发送</button>
-                </div>
+        <span id="status">连接中请稍后...</span>
+        <div id="content"></div>
+        <div class="input-group">
+            <input type="text" id="input" class="form-control">
+            <div class="input-group-btn" id="submit">
+                <button class="btn btn-default dropdown-toggle">发送</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 <!--<script src="/javascripts/chat/socket.io.js"></script>-->
@@ -33,23 +32,78 @@
 <script src="/javascripts/jquery.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
 <script>
-    var socket = io();
+//    var socket = io();
+//
+////    //打开页面出现消息
+////    socket.on('news', function (data) {
+////        socket.emit('my first event',  'data' );
+////        $('#messages').append($('<li>').text(data));
+////    });
+//
+//    //按发送键发送消息
+//    $('form').submit(function(){
+//        socket.emit('chat message', $('#m').val());
+//        $('#m').val('');
+//        return false;
+//    });
+//    socket.on('chat message', function(msg){
+//        $('#messages').append($('<li>').text(msg));
+//    });
 
-    //打开页面出现消息
-    socket.on('news', function (data) {
-        socket.emit('my first event',  'data' );
-        $('#messages').append($('<li>').text(data));
+
+$(function () {
+    var content = $('#content');
+    var status = $('#status');
+    var input = $('#input');
+    var myName = false;
+
+//建立websocket连接
+    socket = io.connect('http://localhost:3100');
+//收到server的连接确认
+    socket.on('open',function(){
+        status.text('Choose a name:');
     });
 
-    //按发送键发送消息
-    $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
+//监听system事件，判断welcome或者disconnect，打印系统消息信息
+    socket.on('system',function(json){
+        var p = '';
+        if (json.type === 'welcome'){
+            if(myName==json.text) status.text(myName + ': ').css('color', json.color);
+            p = '<p style="background:'+json.color+'">system @ '+ json.time+ ' : Welcome ' + json.text +'</p>';
+        }else if(json.type == 'disconnect'){
+            p = '<p style="background:'+json.color+'">system @ '+ json.time+ ' : Bye ' + json.text +'</p>';
+        }
+        content.prepend(p);
     });
-    socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
+
+//监听message事件，打印消息信息
+    socket.on('message',function(json){
+        var p = '<p><span style="color:'+json.color+';">' + json.author+'</span> @ '+ json.time+ ' : '+json.text+'</p>';
+        content.prepend(p);
     });
+
+//通过“回车”提交聊天信息
+    input.keydown(function(e) {
+        if (e.keyCode === 13) {
+            var msg = $(this).val();
+            if (!msg) return;
+            socket.send(msg);
+            $(this).val('');
+            if (myName === false) {
+                myName = msg;
+            }
+        }
+    });
+    $('#submit').click(function(){
+        var msg = $(this).val();
+        if (!msg) return;
+        socket.send(msg);
+        $(this).val('');
+        if (myName === false) {
+            myName = msg;
+        }
+    });
+});
 </script>
 </body>
 </html>
