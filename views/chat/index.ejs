@@ -21,8 +21,8 @@
         <div id="content"></div>
         <div class="input-group">
             <input type="text" id="input" class="form-control">
-            <div class="input-group-btn" id="submit">
-                <button class="btn btn-default dropdown-toggle">发送</button>
+            <div class="input-group-btn">
+                <button class="btn btn-default dropdown-toggle" id="submit">发送</button>
             </div>
         </div>
     </div>
@@ -95,10 +95,10 @@ $(function () {
         }
     });
     $('#submit').click(function(){
-        var msg = $(this).val();
+        var msg = input.val();
         if (!msg) return;
         socket.send(msg);
-        $(this).val('');
+        input.val('');
         if (myName === false) {
             myName = msg;
         }
