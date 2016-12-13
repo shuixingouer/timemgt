@@ -78,31 +78,21 @@ app.use(function(err, req, res, next) {
 
 
 //聊天室
-var map ={};
-var idsocket ={};
-io.on('connection', function(socket){
-//打开页面出现的消息
-//  socket.emit('news', '您好，欢迎光临-时间管理，请问有什么可以帮助您的吗？');
-//  socket.on('my first event', function (data) {
-//  });
-//用户发送的消息
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-
+//WebSocket连接监听
+io.on('connection', function (socket) {
   socket.emit('open');//通知客户端已连接
 
-// 打印握手信息
-// console.log(socket.handshake);
+  // 打印握手信息
+  // console.log(socket.handshake);
 
-// 构造客户端对象
+  // 构造客户端对象
   var client = {
     socket:socket,
     name:false,
     color:getColor()
   }
 
-// 对message事件的监听
+  // 对message事件的监听
   socket.on('message', function(msg){
     var obj = {time:getTime(),color:client.color};
 
@@ -133,7 +123,7 @@ io.on('connection', function(socket){
     }
   });
 
-//监听出退事件
+  //监听出退事件
   socket.on('disconnect', function () {
     var obj = {
       time:getTime(),
