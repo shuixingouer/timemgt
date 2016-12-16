@@ -5,7 +5,7 @@ $(function () {
     var input = $('#input');
     var num = $('#num');
     var myName = false;
-    window.scrollTo(0, content.clientHeight);
+    content.scrollTop = content.scrollHeight;
 //建立websocket连接
     var socket = io();
 //收到server的连接确认
@@ -26,8 +26,13 @@ $(function () {
 
 //监听message事件，打印消息信息
     socket.on('message',function(json){
-        var p = '<div class="authorBox"><span class="authorImg" style="background:'+json.color+';">' + json.author + '</span>'+'<h4 class="authorInfo">' +  json.author + json.time+  '<h4>' + '<p class="authorDes"><span>' + json.text+'</span></p></div>';
+        var p = '<div class="authorBox clearfix"><span class="authorImg" style="background:'+json.color+';">' + json.author + '</span>'+'<h4 class="authorInfo">' +  json.author + json.time+  '</h4>' + '<p class="authorDes"><span>' + json.text+'</span></p></div>';
         content.append(p);
+        //if(json.author=status.text()){
+        //    $(".authorImg").css('float','right');
+        //    $(".authorInfo").css('margin','0 35px 0 0').css('text-align','right');
+        //    $(".authorDes").css('margin','0 35px 0 0').css('text-align','right');
+        //}
     });
 
 //通过“回车”提交聊天信息

@@ -1,2 +1,49 @@
 @import "../reset.less";
 
+#status{
+  display:block;
+  padding-bottom:10px;
+  margin-bottom:10px;
+  font-size:16px;
+  text-align:center;
+  border-bottom:1px solid #aaa;
+}
+#content{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  height:200px;
+  overflow-y:auto;
+  background:#fefefe;
+}
+.authorBox{
+  margin-top:20px;
+  display:block;
+  width:100%;
+  .authorImg{
+    float:left;
+    overflow:hidden;
+    border-radius:50%;
+    line-height:30px;
+    width:30px;
+    height:30px;
+    font-size:12px;
+    text-align:center;
+    color:#fff;}
+  .authorInfo{
+    margin:0 0 0 35px;
+    font-size:12px;
+    color:#aaa;
+  }
+  .authorDes{
+    margin:10px 0 0 35px;
+    span{
+      font-size:14px;
+      line-height:18px;
+      padding:5px;
+      border-radius:5px;
+      border:1px solid #efefef;
+      background:#fff;
+    }
+  }
+}

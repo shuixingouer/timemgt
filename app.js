@@ -79,18 +79,11 @@ app.use(function(err, req, res, next) {
 
 //聊天室
 //WebSocket连接监听
-//在线用户
-var onlineUsers = {};
-//当前在线人数
-var onlineCount = 0;
-
-
 io.on('connection', function (socket) {
   socket.emit('open');//通知客户端已连接
 
   // 打印握手信息
   // console.log(socket.handshake);
-
   // 构造客户端对象
   var client = {
     socket:socket,
@@ -153,7 +146,7 @@ var getTime=function(){
 
 var getColor=function(){
   //var colors = ['aliceblue','antiquewhite','aqua','aquamarine','pink','red','green','orange','blue','blueviolet','brown','burlywood','cadetblue'];
-  var colors = ['#f75f5a','#38c2b3','#5c99f6','#78c06e','#55caf6','#5cc9f4','green', '#9489b4','#bc87cf','#f66993','#5d6cbf','#f6b330','#69c562','#f45e8b','#ed473b','#988777','#33c1b1'];
+  var colors = ['#f75f5a','#38c2b3','#5c99f6','#78c06e','#55caf6','#5cc9f4', '#9489b4','#bc87cf','#f66993','#5d6cbf','#f6b330','#69c562','#f45e8b','#ed473b','#988777','#33c1b1'];
   return colors[Math.round(Math.random() * 10000 % colors.length)];
 };
 
