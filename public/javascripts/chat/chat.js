@@ -3,34 +3,34 @@ $(function () {
     var content = $('#content');
     var status = $('#status');
     var input = $('#input');
+    var num = $('#num');
     var myName = false;
-
-//½¨Á¢websocketÁ¬½Ó
+    window.scrollTo(0, content.clientHeight);
+//å»ºç«‹websocketè¿æ¥
     var socket = io();
-//ÊÕµ½serverµÄÁ¬½ÓÈ·ÈÏ
+//æ”¶åˆ°serverçš„è¿æ¥ç¡®è®¤
     socket.on('open',function(){
-        status.text('Choose a name:');
+        status.text('è¯·é€‰æ‹©æ˜µç§°:');
     });
-
-//¼àÌısystemÊÂ¼ş£¬ÅĞ¶Ïwelcome»òÕßdisconnect£¬´òÓ¡ÏµÍ³ÏûÏ¢ĞÅÏ¢
+//ç›‘å¬systemäº‹ä»¶ï¼Œåˆ¤æ–­welcomeæˆ–è€…disconnectï¼Œæ‰“å°ç³»ç»Ÿæ¶ˆæ¯ä¿¡æ¯
     socket.on('system',function(json){
         var p = '';
         if (json.type === 'welcome'){
             if(myName==json.text) status.text(myName + ': ').css('color', json.color);
-            p = '<p style="background:'+json.color+'">system @ '+ json.time+ ' : Welcome ' + json.text +'</p>';
+            p = '<p style="text-align:center;color:'+json.color+'">system @ '+ json.time+ ' : Welcome ' + json.text +'</p>';
         }else if(json.type == 'disconnect'){
-            p = '<p style="background:'+json.color+'">system @ '+ json.time+ ' : Bye ' + json.text +'</p>';
+            p = '<p style="text-align:center;color:'+json.color+'">system @ '+ json.time+ ' : Bye ' + json.text +'</p>';
         }
         content.append(p);
     });
 
-//¼àÌımessageÊÂ¼ş£¬´òÓ¡ÏûÏ¢ĞÅÏ¢
+//ç›‘å¬messageäº‹ä»¶ï¼Œæ‰“å°æ¶ˆæ¯ä¿¡æ¯
     socket.on('message',function(json){
-        var p = '<p><span style="color:'+json.color+';">' + json.author+'</span> @ '+ json.time+ ' : '+json.text+'</p>';
+        var p = '<div class="authorBox"><span class="authorImg" style="background:'+json.color+';">' + json.author + '</span>'+'<h4 class="authorInfo">' +  json.author + json.time+  '<h4>' + '<p class="authorDes"><span>' + json.text+'</span></p></div>';
         content.append(p);
     });
 
-//Í¨¹ı¡°»Ø³µ¡±Ìá½»ÁÄÌìĞÅÏ¢
+//é€šè¿‡â€œå›è½¦â€æäº¤èŠå¤©ä¿¡æ¯
     input.keydown(function(e) {
         if (e.keyCode === 13) {
             var msg = $(this).val();
